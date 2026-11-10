@@ -322,8 +322,8 @@ button,input,textarea,select{font:inherit}
           <strong>Have something useful to share?</strong>
           <p>Members can submit a post for review. It will only appear publicly after the 3Apqreno administrator approves it.</p>
           <div class="compose-actions">
-            <a class="community-primary" href="login.html?redirect=blog.html">Sign in to create a post</a>
-            <span class="compose-note"><span aria-hidden="true">＋</span> Photos &amp; files available to signed-in members</span>
+            <a class="community-primary" href="login.html">Sign in to create a post</a>
+            <span class="compose-note"><span aria-hidden="true">＋</span> Photo &amp; file attachments for signed-in members</span>
           </div>
         </div>
       </div>
@@ -493,6 +493,19 @@ const dialog=document.getElementById("articleDialog"),dialogTitle=document.getEl
 function openArticle(id){const item=articles[id];if(!item)return;dialogTitle.textContent=item.title;dialogBody.replaceChildren();item.body.forEach(([type,value])=>{const el=document.createElement(type==="h"?"h3":type==="ul"?"ul":"p");if(type==="ul")value.forEach(line=>{const li=document.createElement("li");li.textContent=line;el.append(li);});else el.textContent=value;dialogBody.append(el);});dialog.showModal();}
 document.querySelectorAll("[data-article]").forEach(btn=>btn.addEventListener("click",()=>openArticle(btn.dataset.article)));
 document.getElementById("closeArticle").addEventListener("click",()=>dialog.close());
+
+const communityFilters=[...document.querySelectorAll(".community-filter")];
+const communityEmptyTitle=document.querySelector(".community-empty h3");
+const communityEmptyText=document.querySelector(".community-empty p");
+communityFilters.forEach(filter=>filter.addEventListener("click",()=>{
+  communityFilters.forEach(item=>item.classList.toggle("active",item===filter));
+  const topic=filter.dataset.communityFilter;
+  communityEmptyTitle.textContent=topic==="all"?"The conversation starts here":"No approved posts in this topic yet";
+  communityEmptyText.textContent=topic==="all"
+    ?"Approved member posts will appear here. Every submission is reviewed before publication."
+    :"Approved "+filter.textContent.trim()+" posts will appear here after members submit them and the administrator approves them.";
+}));
+
 dialog.addEventListener("click",e=>{if(e.target===dialog)dialog.close();});
 
 </script>
