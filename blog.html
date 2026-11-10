@@ -663,6 +663,29 @@ button,input,textarea,select{font:inherit}
 @media(prefers-reduced-motion:reduce){.community-inline-composer *{transition:none!important}}
 /* ===== END BLENDED COMMUNITY COMPOSER ===== */
 
+
+/* ===== BLOG (10) COMMUNITY HEADER + LATEST / NEW POST TABS ===== */
+.community-page-heading{max-width:760px;margin:32px 0 23px}
+.community-page-heading h2{margin:10px 0 9px;color:#F5F5F5;font-size:clamp(38px,5vw,56px);font-weight:600;letter-spacing:-1.5px;line-height:1.08}
+.community-page-heading h2 em{color:#C9A227;font-family:Allura,cursive;font-size:1.2em;font-weight:400;letter-spacing:0}
+.community-page-heading p{max-width:670px;margin:0;color:#AEB7C5;font-size:13px;line-height:1.85}
+.community-tabs{display:flex;align-items:center;gap:10px;margin:24px 0 0;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12)}
+.community-tab{min-height:40px;padding:0 19px;border:1px solid rgba(255,255,255,.15);border-radius:3px;background:#121720;color:#AEB7C5;font:inherit;font-size:11px;font-weight:700;letter-spacing:.35px;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.community-tab:hover{border-color:#1769AA;color:#fff}
+.community-tab.active{border-color:#D71920;background:#D71920;color:#fff}
+.community-toolbar{margin-top:17px}
+.community-inline-composer[hidden]{display:none!important}
+.community-inline-composer .blend-post-type{max-width:240px}
+@media(max-width:560px){
+ .community-page-heading{margin:25px 0 19px}
+ .community-page-heading h2{font-size:39px}
+ .community-page-heading p{font-size:12px}
+ .community-tabs{gap:8px}
+ .community-tab{flex:1;padding:0 12px}
+ .community-inline-composer .blend-post-type{max-width:none}
+}
+/* ===== END BLOG (10) COMMUNITY HEADER + TABS ===== */
+
 </style>
 </head>
 <body>
@@ -731,19 +754,15 @@ button,input,textarea,select{font:inherit}
   </section>
 
   <section class="blog-community-section page-wrap" aria-labelledby="communityTitle">
-    <div class="section-overline"><span>02 / THE COMMUNITY</span><span class="section-overline-line"></span><span>REAL PEOPLE. REAL KNOW-HOW.</span></div>
-    <div class="community-heading-row">
-      <div class="community-heading-copy">
-        <span class="story-category">SHARE WHAT YOU KNOW</span>
-        <h2 id="communityTitle">The conversation<br><em>starts here.</em></h2>
-        <p>Ask a question, share a repair experience, or pass along a discovery. Build your profile, connect with other members, and learn together.</p>
-      </div>
-      <div class="community-join-card">
-        <div class="join-card-symbol">✳</div>
-        <div><strong>Your experience can help someone.</strong><p>Member contributions are reviewed by Mohamed before they appear publicly.</p></div>
-        <button class="community-primary" type="button" id="startCommunityPost">＋ Start a discussion</button>
-        <small>MEMBERS ONLY · ADMIN APPROVAL REQUIRED</small>
-      </div>
+    <div class="section-overline"><span>02 / THE COMMUNITY</span><span class="section-overline-line"></span><span>SHARE · DISCUSS · LEARN</span></div>
+    <div class="community-page-heading">
+      <span class="story-category">THE 3APQRENO COMMUNITY</span>
+      <h2 id="communityTitle">3Apqreno <em>Blog</em></h2>
+      <p>Share posts, ask questions, and learn from the community. Every post is reviewed before it is published.</p>
+    </div>
+    <div class="community-tabs" role="tablist" aria-label="Community posts">
+      <button class="community-tab active" type="button" id="latestCommunityTab" role="tab" aria-selected="true">Latest</button>
+      <button class="community-tab" type="button" id="startCommunityPost" role="tab" aria-selected="false">＋ New Post</button>
     </div>
     <div class="community-toolbar">
       <div class="community-toolbar-label"><span class="live-dot"></span><strong>Explore discussions</strong><small>Browse by topic</small></div>
@@ -759,27 +778,34 @@ button,input,textarea,select{font:inherit}
     </div>
     <div class="community-layout">
       <div class="community-main-column">
-        <section class="community-inline-composer" id="communityComposer" aria-labelledby="composerTitle">
+        <section class="community-inline-composer" id="communityComposer" aria-labelledby="composerTitle" hidden>
           <div class="blend-composer-topline">
-            <span class="blend-composer-brand"><span class="blend-brand-mark">3A</span> 3APQRENO COMMUNITY</span>
-            <span class="blend-review-note"><span class="blend-review-dot"></span> MODERATED SPACE</span>
+            <span class="blend-composer-brand"><span class="blend-brand-mark">3A</span> 3APQRENO BLOG</span>
+            <span class="blend-review-note"><span class="blend-review-dot"></span> ADMIN REVIEW REQUIRED</span>
           </div>
           <div class="inline-composer-heading">
             <div>
-              <span class="story-category">SHARE YOUR KNOWLEDGE</span>
-              <h3 id="composerTitle">What would you like to share?</h3>
-              <p>Start a conversation, ask the community, or share something useful you have learned.</p>
+              <span class="story-category">CREATE A CONTRIBUTION</span>
+              <h3 id="composerTitle">New post</h3>
+              <p>Share an update with the community or ask a question and get help from others.</p>
             </div>
             <span class="inline-compose-mark" aria-hidden="true">✳</span>
           </div>
           <form id="communityPostForm">
+            <div class="blend-field-block blend-post-type">
+              <label for="communityPostType">POST TYPE</label>
+              <select id="communityPostType" name="type" required>
+                <option value="post">Post</option>
+                <option value="question">Question</option>
+              </select>
+            </div>
             <div class="blend-field-block">
-              <label for="communityPostTitle">GIVE YOUR POST A TITLE</label>
-              <input id="communityPostTitle" name="title" maxlength="120" required placeholder="What is your post about?">
+              <label for="communityPostTitle">TITLE</label>
+              <input id="communityPostTitle" name="title" maxlength="150" required placeholder="Give your post a clear title">
             </div>
             <div class="blend-form-grid">
               <div class="blend-field-block">
-                <label for="communityPostCategory">CHOOSE A TOPIC</label>
+                <label for="communityPostCategory">TOPIC</label>
                 <select id="communityPostCategory" name="category" required>
                   <option value="performance">Performance &amp; Optimization</option>
                   <option value="windows">Windows Support</option>
@@ -790,19 +816,19 @@ button,input,textarea,select{font:inherit}
                 </select>
               </div>
               <div class="blend-field-block">
-                <label for="communityPostFiles">ADD ATTACHMENTS <span class="blend-optional">(OPTIONAL)</span></label>
+                <label for="communityPostFiles">ATTACH IMAGE OR FILE <span class="blend-optional">(OPTIONAL)</span></label>
                 <input id="communityPostFiles" name="attachments" type="file" accept="image/*,.pdf,.txt,.log,.zip" multiple>
                 <small class="blend-field-hint">Images, PDF, text, log or ZIP files</small>
               </div>
             </div>
             <div class="blend-field-block blend-message-field">
-              <label for="communityPostBody">YOUR MESSAGE</label>
-              <textarea id="communityPostBody" name="body" rows="6" maxlength="8000" required placeholder="Share the details, steps you tried, or the solution you discovered..."></textarea>
+              <label for="communityPostBody">WRITE HERE</label>
+              <textarea id="communityPostBody" name="body" rows="6" maxlength="8000" required placeholder="Write your post or question here..."></textarea>
               <div class="blend-editor-foot"><span>Be clear, helpful, and respectful.</span><span>UP TO 8,000 CHARACTERS</span></div>
             </div>
             <div class="inline-composer-footer">
-              <small><span class="blend-lock">◇</span> SUBMISSIONS REMAIN PRIVATE UNTIL MOHAMED REVIEWS AND APPROVES THEM.</small>
-              <button class="community-primary" type="submit">Send for review <span aria-hidden="true">↗</span></button>
+              <small><span class="blend-lock">◇</span> EVERY SUBMISSION IS PRIVATE UNTIL MOHAMED REVIEWS AND APPROVES IT.</small>
+              <button class="community-primary" type="submit">Submit for review <span aria-hidden="true">↗</span></button>
             </div>
             <p class="file-guidance">Post saving and file uploads will be enabled when Firestore and Firebase Storage are connected. This form is currently a design preview.</p>
             <p class="composer-status" id="composerStatus" role="status" aria-live="polite"></p>
@@ -1045,10 +1071,25 @@ function openComposer(){
     document.getElementById("openLogin")?.click();
     return;
   }
-  composer?.scrollIntoView({behavior:"smooth",block:"center"});
-  document.getElementById("communityPostTitle")?.focus({preventScroll:true});
+  if(composer) composer.hidden=!composer.hidden;
+  const tab=document.getElementById("startCommunityPost");
+  const latest=document.getElementById("latestCommunityTab");
+  if(tab){tab.classList.toggle("active",!composer?.hidden);tab.setAttribute("aria-selected",String(!composer?.hidden));}
+  if(latest){latest.classList.toggle("active",!!composer?.hidden);latest.setAttribute("aria-selected",String(!!composer?.hidden));}
+  if(!composer?.hidden){
+    composer?.scrollIntoView({behavior:"smooth",block:"center"});
+    document.getElementById("communityPostTitle")?.focus({preventScroll:true});
+  }
 }
 document.getElementById("startCommunityPost")?.addEventListener("click",openComposer);
+document.getElementById("latestCommunityTab")?.addEventListener("click",()=>{
+  if(composer) composer.hidden=true;
+  const latest=document.getElementById("latestCommunityTab");
+  const create=document.getElementById("startCommunityPost");
+  latest?.classList.add("active");latest?.setAttribute("aria-selected","true");
+  create?.classList.remove("active");create?.setAttribute("aria-selected","false");
+  document.getElementById("communityFeed")?.scrollIntoView({behavior:"smooth",block:"nearest"});
+});
 document.getElementById("emptyCreatePost")?.addEventListener("click",openComposer);
 
 
