@@ -251,6 +251,202 @@ button,input,textarea,select{font:inherit}
 .community-feed .community-empty{border-color:rgba(201,162,39,.25)}
 @media(max-width:600px){.community-dialog{padding:29px 20px}.composer-actions{align-items:stretch;flex-direction:column}.composer-actions button{width:100%}}
 
+/* AUTH OVERLAY */
+.auth-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.85);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.auth-overlay.is-open {
+  display: flex;
+}
+
+/* AUTH BOX */
+.auth-box {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 38px 32px;
+  background: #111827;
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+}
+
+.auth-close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.auth-logo-image {
+  display: block;
+  width: 112px;
+  height: 78px;
+  object-fit: contain;
+  margin: 0 auto 8px;
+}
+
+.auth-brand {
+  display: block;
+  color: #D71920;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 22px;
+}
+
+.auth-box h2 {
+  color: #FFFFFF;
+  font-size: 27px;
+  margin-bottom: 7px;
+}
+
+.auth-box p {
+  color: #D1D5DB;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.auth-box form {
+  text-align: left;
+}
+
+.auth-box label {
+  display: block;
+  color: #FFFFFF;
+  font-size: 13px;
+  margin: 15px 0 7px;
+}
+
+.auth-box input {
+  width: 100%;
+  padding: 13px;
+  color: #FFFFFF;
+  background: #0B0D12;
+  border: 1px solid #343B49;
+  border-radius: 7px;
+  outline: none;
+}
+
+.auth-box input:focus {
+  border-color: #1769AA;
+}
+
+.auth-submit {
+  width: 100%;
+  margin-top: 22px;
+  padding: 13px;
+  color: #FFFFFF;
+  background: #D71920;
+  border: none;
+  border-radius: 7px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.auth-submit:hover {
+  background: #1769AA;
+}
+
+.auth-text-button,
+.auth-switch button {
+  color: #C9A227;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+.auth-text-button {
+  margin-top: 16px;
+}
+
+.auth-switch {
+  margin-top: 25px;
+  color: #D1D5DB;
+  font-size: 13px;
+}
+
+.auth-switch button {
+  font-weight: 700;
+}
+
+.auth-message {
+  margin-top: 15px;
+  color: #C9A227;
+  font-size: 13px;
+}
+
+@media (max-width: 480px) {
+  .auth-box {
+    padding: 35px 22px;
+  }
+
+  .header-signin {
+    padding: 9px 15px;
+  }
+}
+
+/* ===== FIREBASE AUTHENTICATION UI ===== */
+.auth-box {
+  max-width: 480px;
+  padding: 34px 34px 30px;
+  background: radial-gradient(circle at 50% 0%, rgba(23,105,170,.14), transparent 38%), #10131B;
+  border: 1px solid rgba(23,105,170,.42);
+  box-shadow: 0 24px 80px rgba(0,0,0,.65), 0 0 35px rgba(23,105,170,.08);
+}
+.auth-close { z-index: 2; }
+.auth-logo-image { width: 96px; height: 70px; margin-bottom: 5px; }
+.auth-brand { color: #C9A227; letter-spacing: 2.4px; margin-bottom: 14px; }
+.auth-box h2 { font-size: 26px; letter-spacing: -.4px; }
+.auth-box p { margin-bottom: 20px; }
+.auth-box input { min-height: 46px; font-size: 14px; transition: border-color .2s, box-shadow .2s; }
+.auth-box input:focus { border-color: #1769AA; box-shadow: 0 0 0 3px rgba(23,105,170,.15); }
+.auth-submit { min-height: 46px; background: linear-gradient(100deg,#D71920,#1769AA); }
+.auth-submit:hover { background: linear-gradient(100deg,#1769AA,#D71920); }
+.auth-provider-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 18px 0 16px; }
+.auth-provider-button {
+  min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  padding: 10px 12px; color: #F4F6FA; background: #171B25;
+  border: 1px solid #343B49; border-radius: 8px; font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: .2s ease;
+}
+.auth-provider-button:hover { border-color: #1769AA; background: #1C2330; transform: translateY(-1px); }
+.auth-provider-button.facebook-auth:hover { border-color: #1877F2; }
+.auth-provider-mark { width: 19px; height: 19px; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 17px; }
+.google-mark { color: #4285F4; }
+.facebook-mark { color: #1877F2; }
+.auth-divider { display: flex; align-items: center; gap: 12px; margin: 15px 0; color: #8D96A5; font-size: 11px; letter-spacing: 1.4px; }
+.auth-divider::before, .auth-divider::after { content: ''; height: 1px; flex: 1; background: rgba(255,255,255,.12); }
+.auth-phone-button { width: 100%; min-height: 42px; color: #D1D5DB; background: transparent; border: 1px solid rgba(201,162,39,.42); border-radius: 8px; cursor: pointer; font-size: 13px; transition: .2s; }
+.auth-phone-button:hover { color: #FFFFFF; border-color: #C9A227; background: rgba(201,162,39,.08); }
+.auth-back-button { margin-top: 12px; color: #C9A227; background: none; border: 0; cursor: pointer; font-size: 13px; }
+.auth-message { min-height: 18px; line-height: 1.55; overflow-wrap: anywhere; }
+.auth-message.error { color: #FF777D; }
+.auth-message.success { color: #71D6A0; }
+#recaptcha-container { display: flex; justify-content: center; margin: 14px 0 8px; overflow: hidden; }
+#phoneCodeArea[hidden], #phoneView[hidden], #signupView[hidden] { display: none !important; }
+@media (max-width: 480px) {
+  .auth-box { padding: 32px 20px 25px; }
+  .auth-provider-group { grid-template-columns: 1fr; }
+}
+/* ===== END FIREBASE AUTHENTICATION UI ===== */
 </style>
 </head>
 <body>
@@ -419,6 +615,78 @@ button,input,textarea,select{font:inherit}
   <div id="dialogBody" class="dialog-body"></div>
 </dialog></main>
 
+<!-- SIGN IN / CREATE ACCOUNT / PHONE AUTHENTICATION MODAL -->
+<div class="auth-overlay" id="authModal" aria-hidden="true">
+  <div class="auth-box" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <button type="button" class="auth-close" id="closeAuth" aria-label="Close sign in">&times;</button>
+    <img class="auth-logo-image" src="assets/images/glossy-3a-tech-emblem.png" alt="3Apqreno Technology emblem">
+    <span class="auth-brand">3APQRENO TECHNOLOGY</span>
+
+    <div id="loginView">
+      <h2 id="authTitle">Welcome Back</h2>
+      <p>Sign in securely to your 3Apqreno account.</p>
+
+      <div class="auth-provider-group">
+        <button type="button" class="auth-provider-button" id="googleSignIn"><span class="auth-provider-mark google-mark">G</span> Continue with Google</button>
+        <button type="button" class="auth-provider-button facebook-auth" id="facebookSignIn"><span class="auth-provider-mark facebook-mark">f</span> Continue with Facebook</button>
+      </div>
+      <div class="auth-divider">OR USE EMAIL</div>
+
+      <form id="loginForm">
+        <label for="loginEmail">Email Address</label>
+        <input type="email" id="loginEmail" placeholder="Enter your email" autocomplete="email" required>
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" placeholder="Enter your password" autocomplete="current-password" required>
+        <button type="submit" class="auth-submit" id="loginSubmit">Sign In</button>
+      </form>
+
+      <button type="button" class="auth-text-button" id="forgotPassword">Forgot Password?</button>
+      <div class="auth-divider">OR</div>
+      <button type="button" class="auth-phone-button" id="showPhone">Continue with Phone Number</button>
+      <div class="auth-switch">Don't have an account? <button type="button" id="showSignup">Create Account</button></div>
+    </div>
+
+    <div id="signupView" hidden>
+      <h2>Create Account</h2>
+      <p>Create your personal 3Apqreno Technology account.</p>
+      <div class="auth-provider-group">
+        <button type="button" class="auth-provider-button" id="googleSignUp"><span class="auth-provider-mark google-mark">G</span> Sign up with Google</button>
+        <button type="button" class="auth-provider-button facebook-auth" id="facebookSignUp"><span class="auth-provider-mark facebook-mark">f</span> Sign up with Facebook</button>
+      </div>
+      <div class="auth-divider">OR USE EMAIL</div>
+      <form id="signupForm">
+        <label for="signupName">Full Name</label>
+        <input type="text" id="signupName" placeholder="Enter your full name" autocomplete="name" required>
+        <label for="signupEmail">Email Address</label>
+        <input type="email" id="signupEmail" placeholder="Enter your email" autocomplete="email" required>
+        <label for="signupPassword">Password</label>
+        <input type="password" id="signupPassword" placeholder="Create a password (at least 6 characters)" autocomplete="new-password" minlength="6" required>
+        <button type="submit" class="auth-submit" id="signupSubmit">Create Account</button>
+      </form>
+      <div class="auth-switch">Already have an account? <button type="button" id="showLogin">Sign In</button></div>
+    </div>
+
+    <div id="phoneView" hidden>
+      <h2>Sign in with Phone</h2>
+      <p>Enter your number and we’ll send you a verification code.</p>
+      <form id="phoneForm">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="tel" id="phoneNumber" placeholder="+20 1XXXXXXXXX" autocomplete="tel" required>
+        <div id="recaptcha-container"></div>
+        <button type="submit" class="auth-submit" id="sendPhoneCode">Send Verification Code</button>
+      </form>
+      <div id="phoneCodeArea" hidden>
+        <label for="phoneCode">Verification Code</label>
+        <input type="text" id="phoneCode" inputmode="numeric" autocomplete="one-time-code" placeholder="Enter SMS code" maxlength="10">
+        <button type="button" class="auth-submit" id="verifyPhoneCode">Verify &amp; Sign In</button>
+      </div>
+      <button type="button" class="auth-back-button" id="backToLogin">← Back to Sign In</button>
+    </div>
+
+    <div class="auth-message" id="authMessage" aria-live="polite"></div>
+  </div>
+</div>
+
 <footer class="site-footer" id="site-footer">
 
   <div class="footer-container">
@@ -562,6 +830,275 @@ communityFilters.forEach(filter=>filter.addEventListener("click",()=>{
   if(heading)heading.textContent=topic==="all"?"The conversation starts here":"No approved posts in this topic yet";
   if(message)message.textContent=topic==="all"?"Approved member posts will appear here. Submitted posts remain private until administrator approval.":"Approved "+filter.textContent.trim()+" posts will appear here after review.";
 }));
+</script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-analytics.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+  GoogleAuthProvider,
+  FacebookAuthProvider,
+  signInWithPopup,
+  RecaptchaVerifier,
+  signInWithPhoneNumber,
+  updateProfile,
+  setPersistence,
+  browserLocalPersistence,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/13.2.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDCohB54hX9woeYIVMojXVp1NhdrBqHlLo",
+  authDomain: "apqreno-technology.firebaseapp.com",
+  projectId: "apqreno-technology",
+  storageBucket: "apqreno-technology.firebasestorage.app",
+  messagingSenderId: "948093025378",
+  appId: "1:948093025378:web:da2ed1d61f1f520cb1653b",
+  measurementId: "G-SD36Y9JY8N"
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: "select_account" });
+const facebookProvider = new FacebookAuthProvider();
+facebookProvider.addScope("email");
+
+const modal = document.getElementById("authModal");
+const message = document.getElementById("authMessage");
+const loginView = document.getElementById("loginView");
+const signupView = document.getElementById("signupView");
+const phoneView = document.getElementById("phoneView");
+let recaptchaVerifier = null;
+let confirmationResult = null;
+
+function setMessage(text, type = "") {
+  message.textContent = text;
+  message.className = `auth-message ${type}`.trim();
+}
+function setBusy(button, busy, busyText = "Please wait…") {
+  if (!button) return;
+  if (busy) {
+    button.dataset.originalHTML = button.innerHTML;
+    button.disabled = true;
+    button.textContent = busyText;
+  } else {
+    button.disabled = false;
+    if (button.dataset.originalHTML) button.innerHTML = button.dataset.originalHTML;
+  }
+}
+function readableAuthError(error) {
+  const messages = {
+    "auth/invalid-email": "Please enter a valid email address.",
+    "auth/user-not-found": "No account was found with this email.",
+    "auth/wrong-password": "The password is incorrect.",
+    "auth/invalid-credential": "The email or password is incorrect.",
+    "auth/email-already-in-use": "An account already exists with this email. Try signing in.",
+    "auth/weak-password": "Please choose a stronger password with at least 6 characters.",
+    "auth/popup-closed-by-user": "The sign-in window was closed before completion.",
+    "auth/account-exists-with-different-credential": "An account already exists with this email using another sign-in method.",
+    "auth/unauthorized-domain": "This website domain is not authorized in Firebase Authentication.",
+    "auth/operation-not-allowed": "This sign-in method is not enabled in Firebase Authentication.",
+    "auth/invalid-phone-number": "Enter the phone number in international format, including the country code.",
+    "auth/too-many-requests": "Too many attempts. Please wait a while and try again.",
+    "auth/invalid-verification-code": "The verification code is incorrect. Please try again.",
+    "auth/code-expired": "The verification code has expired. Request a new code."
+  };
+  return messages[error.code] || error.message || "Something went wrong. Please try again.";
+}
+function openModal() {
+  modal.classList.add("is-open");
+  modal.setAttribute("aria-hidden", "false");
+  showLogin();
+}
+function closeModal() {
+  modal.classList.remove("is-open");
+  modal.setAttribute("aria-hidden", "true");
+}
+function resetPhoneVerifier() {
+  if (recaptchaVerifier) {
+    recaptchaVerifier.clear();
+    recaptchaVerifier = null;
+  }
+  confirmationResult = null;
+  document.getElementById("recaptcha-container").innerHTML = "";
+  document.getElementById("phoneCodeArea").hidden = true;
+  document.getElementById("phoneCode").value = "";
+}
+function showLogin() {
+  loginView.hidden = false;
+  signupView.hidden = true;
+  phoneView.hidden = true;
+  resetPhoneVerifier();
+  setMessage("");
+}
+function showSignup() {
+  loginView.hidden = true;
+  signupView.hidden = false;
+  phoneView.hidden = true;
+  resetPhoneVerifier();
+  setMessage("");
+}
+async function showPhone() {
+  loginView.hidden = true;
+  signupView.hidden = true;
+  phoneView.hidden = false;
+  resetPhoneVerifier();
+  setMessage("Complete the reCAPTCHA check before requesting your SMS code.");
+  try {
+    recaptchaVerifier = new RecaptchaVerifier(auth, "recaptcha-container", { size: "normal" });
+    await recaptchaVerifier.render();
+  } catch (error) {
+    setMessage(readableAuthError(error), "error");
+  }
+}
+
+// Keep the user's authentication session persistent on this browser.
+setPersistence(auth, browserLocalPersistence).catch(error => setMessage(readableAuthError(error), "error"));
+
+const headerAccountButton = document.getElementById("openLogin");
+headerAccountButton.addEventListener("click", () => {
+  if (auth.currentUser) {
+    window.location.href = "my-account.html";
+  } else {
+    openModal();
+  }
+});
+document.getElementById("closeAuth").addEventListener("click", closeModal);
+document.getElementById("showSignup").addEventListener("click", showSignup);
+document.getElementById("showLogin").addEventListener("click", showLogin);
+document.getElementById("showPhone").addEventListener("click", showPhone);
+document.getElementById("backToLogin").addEventListener("click", showLogin);
+
+modal.addEventListener("click", event => { if (event.target === modal) closeModal(); });
+document.addEventListener("keydown", event => { if (event.key === "Escape") closeModal(); });
+
+async function popupSignIn(provider, button) {
+  setBusy(button, true, "Connecting…");
+  setMessage("Opening secure sign-in…");
+  try {
+    const result = await signInWithPopup(auth, provider);
+    setMessage(`Welcome${result.user.displayName ? `, ${result.user.displayName}` : ""}! You are signed in.`, "success");
+  } catch (error) {
+    setMessage(readableAuthError(error), "error");
+  } finally {
+    setBusy(button, false);
+  }
+}
+
+document.getElementById("googleSignIn").addEventListener("click", event => popupSignIn(googleProvider, event.currentTarget));
+document.getElementById("googleSignUp").addEventListener("click", event => popupSignIn(googleProvider, event.currentTarget));
+document.getElementById("facebookSignIn").addEventListener("click", event => popupSignIn(facebookProvider, event.currentTarget));
+document.getElementById("facebookSignUp").addEventListener("click", event => popupSignIn(facebookProvider, event.currentTarget));
+
+document.getElementById("loginForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  const button = document.getElementById("loginSubmit");
+  setBusy(button, true, "Signing in…");
+  setMessage("Checking your account…");
+  try {
+    const email = document.getElementById("loginEmail").value.trim();
+    const password = document.getElementById("loginPassword").value;
+    const result = await signInWithEmailAndPassword(auth, email, password);
+    setMessage(`Welcome${result.user.displayName ? `, ${result.user.displayName}` : ""}! You are signed in.`, "success");
+  } catch (error) {
+    setMessage(readableAuthError(error), "error");
+  } finally {
+    setBusy(button, false);
+  }
+});
+
+document.getElementById("signupForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  const button = document.getElementById("signupSubmit");
+  setBusy(button, true, "Creating account…");
+  setMessage("Creating your account…");
+  try {
+    const name = document.getElementById("signupName").value.trim();
+    const email = document.getElementById("signupEmail").value.trim();
+    const password = document.getElementById("signupPassword").value;
+    const result = await createUserWithEmailAndPassword(auth, email, password);
+    if (name) await updateProfile(result.user, { displayName: name });
+    setMessage("Your account has been created successfully.", "success");
+  } catch (error) {
+    setMessage(readableAuthError(error), "error");
+  } finally {
+    setBusy(button, false);
+  }
+});
+
+document.getElementById("forgotPassword").addEventListener("click", async () => {
+  const email = document.getElementById("loginEmail").value.trim();
+  if (!email) {
+    setMessage("Enter your email address first, then choose Forgot Password again.", "error");
+    document.getElementById("loginEmail").focus();
+    return;
+  }
+  try {
+    await sendPasswordResetEmail(auth, email);
+    setMessage("If an account exists for this email, a password reset message has been sent.", "success");
+  } catch (error) {
+    setMessage(readableAuthError(error), "error");
+  }
+});
+
+document.getElementById("phoneForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  const button = document.getElementById("sendPhoneCode");
+  const phoneNumber = document.getElementById("phoneNumber").value.trim().replace(/[\s()-]/g, "");
+  if (!recaptchaVerifier) {
+    setMessage("Please complete the reCAPTCHA check. If it is missing, go back and reopen Phone Sign In.", "error");
+    return;
+  }
+  setBusy(button, true, "Sending code…");
+  try {
+    confirmationResult = await signInWithPhoneNumber(auth, phoneNumber, recaptchaVerifier);
+    document.getElementById("phoneCodeArea").hidden = false;
+    setMessage("Verification code sent. Check your phone messages.", "success");
+    document.getElementById("phoneCode").focus();
+  } catch (error) {
+    setMessage(readableAuthError(error), "error");
+    if (recaptchaVerifier) {
+      try { await recaptchaVerifier.render(); } catch (_) {}
+    }
+  } finally {
+    setBusy(button, false);
+  }
+});
+
+document.getElementById("verifyPhoneCode").addEventListener("click", async event => {
+  const code = document.getElementById("phoneCode").value.trim();
+  if (!confirmationResult || !code) {
+    setMessage("Enter the SMS verification code first.", "error");
+    return;
+  }
+  const button = event.currentTarget;
+  setBusy(button, true, "Verifying…");
+  try {
+    await confirmationResult.confirm(code);
+    setMessage("Your phone number is verified. You are signed in.", "success");
+  } catch (error) {
+    setMessage(readableAuthError(error), "error");
+  } finally {
+    setBusy(button, false);
+  }
+});
+
+onAuthStateChanged(auth, user => {
+  if (user) {
+    document.documentElement.dataset.authenticated = "true";
+    headerAccountButton.textContent = "My Account";
+    headerAccountButton.setAttribute("aria-label", "Open My Account");
+  } else {
+    delete document.documentElement.dataset.authenticated;
+    headerAccountButton.textContent = "Sign In";
+    headerAccountButton.setAttribute("aria-label", "Sign In");
+  }
+});
 </script>
 </body>
 </html>
