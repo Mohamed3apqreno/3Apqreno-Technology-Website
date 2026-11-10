@@ -9,12 +9,12 @@
 <link rel="icon" type="image/png" href="assets/images/3Apqreno-favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--black:#0B0D12;--dark:#111318;--panel:#171B24;--red:#D71920;--blue:#1769AA;--gold:#C9A227;--white:#fff;--muted:#AEB7C5;--line:rgba(255,255,255,.09)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Poppins',Arial,Helvetica,sans-serif;background:var(--black);color:var(--white);line-height:1.7}
+body{font-family:'Poppins',Arial,Helvetica,sans-serif;background:linear-gradient(rgba(8,9,13,.91),rgba(11,13,18,.95)),url('assets/images/futuristic-3apqreno-technology-branding-wallpaper.jpg') center/cover fixed;background-color:var(--black);color:var(--white);line-height:1.7}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 button,input,textarea,select{font:inherit}
@@ -164,30 +164,92 @@ button,input,textarea,select{font:inherit}
   .footer-brand { padding-top: 30px; }
 }
 
+
+/* ===== BLOG PAGE: HOMEPAGE HEADER & FOOTER ALIGNMENT ===== */
+.site-header{width:100%;background:#08090D;border-bottom:1px solid rgba(255,255,255,.08);padding:14px 5%;position:relative;z-index:20}
+.header-container{max-width:1400px;min-height:65px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.main-nav{display:flex;align-items:center;gap:30px}
+.main-nav a{color:#FFFFFF;font-size:15px;font-weight:600;white-space:nowrap;transition:color .3s ease}
+.main-nav a:hover,.main-nav a.active{color:#D71920}
+.header-actions{display:flex;align-items:center;gap:18px;flex-shrink:0}
+.header-signin{padding:11px 22px;background:#D71920;color:#FFFFFF;border:1px solid #D71920;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:.3s ease}
+.header-signin:hover{background:#1769AA;border-color:#1769AA;transform:translateY(-2px)}
+.header-icon{width:42px;height:42px;display:flex;align-items:center;justify-content:center;padding:9px;color:#FFFFFF;background:transparent;border:1px solid rgba(255,255,255,.18);border-radius:10px;cursor:pointer;transition:all .3s ease}
+.header-icon svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.header-icon:hover{color:#D71920;border-color:#D71920;transform:translateY(-2px)}
+.page-hero h1{font-family:'Allura',cursive;font-size:clamp(58px,8vw,88px);font-weight:400;line-height:.98;letter-spacing:0;color:#fff;text-shadow:0 4px 22px rgba(215,25,32,.2);margin:0 auto 12px}
+.page-hero h1 .gradient-text{font-family:inherit;font-weight:400}
+.site-footer{direction:ltr;width:100%;background:linear-gradient(180deg,#171717 0%,#0B0D12 100%);color:#D1D5DB;padding:55px 25px 20px;border-top:2px solid #1769AA;font-family:inherit}
+.footer-container{width:100%;max-width:1200px;margin:0 auto}
+.footer-heading{text-align:center;margin-bottom:45px}
+.footer-heading h2{color:#FFFFFF;font-size:27px;font-weight:700;margin:0 0 12px;letter-spacing:.5px}
+.footer-heading>p{color:#C9A227;font-size:16px;margin:0;letter-spacing:1px}
+.footer-heading-line{width:90px;height:3px;margin:20px auto 0;background:linear-gradient(90deg,#D71920,#1769AA);border-radius:5px}
+.footer-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:45px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.12)}
+.footer-column{display:flex;flex-direction:column;align-items:flex-start;gap:15px}
+.footer-column h3{color:#FFFFFF;font-size:18px;font-weight:700;margin:0 0 10px;padding-bottom:12px;position:relative}
+.footer-column h3:after{content:"";position:absolute;bottom:0;left:0;width:42px;height:2px;background:#D71920;border-radius:5px}
+.footer-column>a{display:inline-flex;align-items:center;gap:11px;color:#BFC5CE;text-decoration:none;font-size:14px;transition:color .25s ease,transform .25s ease}
+.footer-column>a:hover{color:#FFFFFF;transform:translateX(5px)}
+.social-icon{width:27px;height:27px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:7px;color:#FFFFFF;font-size:16px;font-weight:700;margin:0}
+.facebook{background:#1877F2}
+.instagram{background:linear-gradient(45deg,#FEDA75,#FA7E1E,#D62976,#962FBF,#4F5BD5)}
+.tiktok{background:#111111;border:1px solid #555}
+.youtube{background:#FF0033;font-size:13px}
+.x-social{background:#000000;border:1px solid #555}
+.linkedin{background:#0A66C2;font-size:13px}
+.footer-brand{text-align:center;padding:35px 0 25px}
+.footer-brand-name{color:#FFFFFF;font-size:18px;font-weight:700;margin:12px 0 5px}
+.footer-bottom{text-align:center;border-top:1px solid rgba(255,255,255,.12);padding-top:18px}
+.footer-bottom p{color:#9299A5;font-size:13px;margin:0}
+.footer-bottom strong{color:#FFFFFF}
+@media(max-width:1050px){.header-container{flex-direction:column;gap:18px}.main-nav{justify-content:center;flex-wrap:wrap;gap:15px 22px}}
+@media(max-width:760px){.site-footer{padding:42px 20px 18px}.footer-heading h2{font-size:22px}.footer-columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:35px 25px}.main-nav{gap:10px 15px}}
+@media(max-width:520px){.footer-columns{grid-template-columns:1fr;gap:28px}.footer-column{align-items:center}.footer-column h3{text-align:center}.footer-column>a{justify-content:center}.page-hero h1{font-size:60px}}
+/* ===== END HOMEPAGE ALIGNMENT ===== */
+
 </style>
 </head>
 <body>
 
 <header class="site-header">
   <div class="header-container">
-    <a href="index.html" class="brand"><img src="assets/images/3Apqreno-Technology-logo-from-reference.png" alt="3Apqreno Technology Logo"></a>
-    <nav class="main-nav" aria-label="Main navigation">
+
+    <a href="index.html" class="brand">
+      <img src="assets/images/3Apqreno-Technology-logo-from-reference.png"
+           alt="3Apqreno Technology Logo">
+    </a>
+
+    <nav class="main-nav">
       <a href="index.html">Home</a>
-      <a href="services.html" >Services</a>
+      <a href="services.html">Services</a>
       <a href="index.html#guides">Guides</a>
-      <a href="tools.html" >Tools</a>
+      <a href="tools.html">Tools</a>
       <a href="about.html">About</a>
       <a href="blog.html" class="active" aria-current="page">3Apqreno Blog</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="header-actions">
-      <a class="header-signin" href="login.html">Sign In</a>
-      <button class="header-icon" id="focusSearch" type="button" aria-label="Focus page search">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="M16 16L21 21"></path></svg>
-      </button>
-      <a href="tools.html" class="header-icon" aria-label="Open Tools">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="14" rx="2"></rect><path d="M8 7V4h8v3M3 12h18M10 12v2h4v-2"></path></svg>
+      <a class="header-signin" href="login.html">
+         Sign In
       </a>
+
+      <!-- Search Icon -->
+      <button class="header-icon" id="focusSearch" type="button" aria-label="Search">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="10.8" cy="10.8" r="6.8"></circle>
+          <path d="M16 16L21 21"></path>
+        </svg>
+      </button>
+
+      <!-- Toolbox Icon -->
+      <a href="tools.html" class="header-icon" aria-label="Tools">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="7" width="18" height="14" rx="2"></rect>
+          <path d="M8 7V4h8v3M3 12h18M10 12v2h4v-2"></path>
+        </svg>
+      </a>
+
     </div>
   </div>
 </header>
@@ -273,16 +335,36 @@ button,input,textarea,select{font:inherit}
 
     <div class="footer-columns">
 
+      <!-- Social Media -->
       <div class="footer-column footer-social">
         <h3>Social Media</h3>
-        <a href="https://www.facebook.com/3ApqrenoTechnology" target="_blank" rel="noopener noreferrer"><span class="social-icon facebook">f</span> Facebook</a>
-        <a href="https://www.instagram.com/mohamed_3apqreno" target="_blank" rel="noopener noreferrer"><span class="social-icon instagram">◎</span> Instagram</a>
-        <a href="https://www.tiktok.com/@3apqreno" target="_blank" rel="noopener noreferrer"><span class="social-icon tiktok">♪</span> TikTok</a>
-        <a href="https://www.youtube.com/@mohamed3apqreno" target="_blank" rel="noopener noreferrer"><span class="social-icon youtube">▶</span> YouTube</a>
-        <a href="https://x.com/mohamed3apqreno" target="_blank" rel="noopener noreferrer"><span class="social-icon x-social">𝕏</span> X</a>
-        <a href="https://www.linkedin.com/in/m%C3%B3h%C3%A4m%C3%A9d-h%C3%B9ss%C3%AA%C3%ACn-b9383b159" target="_blank" rel="noopener noreferrer"><span class="social-icon linkedin">in</span> LinkedIn</a>
+
+        <a href="https://www.facebook.com/3ApqrenoTechnology" target="_blank" rel="noopener noreferrer">
+          <span class="social-icon facebook">f</span> Facebook
+        </a>
+
+        <a href="https://www.instagram.com/mohamed_3apqreno" target="_blank" rel="noopener noreferrer">
+          <span class="social-icon instagram">◎</span> Instagram
+        </a>
+
+        <a href="https://www.tiktok.com/@3apqreno" target="_blank" rel="noopener noreferrer">
+          <span class="social-icon tiktok">♪</span> TikTok
+        </a>
+
+        <a href="https://www.youtube.com/@mohamed3apqreno" target="_blank" rel="noopener noreferrer">
+          <span class="social-icon youtube">▶</span> YouTube
+        </a>
+
+        <a href="https://x.com/mohamed3apqreno" target="_blank" rel="noopener noreferrer">
+          <span class="social-icon x-social">𝕏</span> X
+        </a>
+
+        <a href="https://www.linkedin.com/in/m%C3%B3h%C3%A4m%C3%A9d-h%C3%B9ss%C3%AA%C3%ACn-b9383b159" target="_blank" rel="noopener noreferrer">
+          <span class="social-icon linkedin">in</span> LinkedIn
+        </a>
       </div>
 
+      <!-- Policies & Support -->
       <div class="footer-column">
         <h3>Policies &amp; Support</h3>
         <a href="privacy-policy.html">Privacy Policy</a>
@@ -291,6 +373,7 @@ button,input,textarea,select{font:inherit}
         <a href="contact.html">Contact Us</a>
       </div>
 
+      <!-- About the Company -->
       <div class="footer-column">
         <h3>About the Company</h3>
         <a href="about.html">About Us</a>
@@ -303,7 +386,8 @@ button,input,textarea,select{font:inherit}
 
     <div class="footer-brand">
       <a href="index.html" class="footer-logo-link">
-        <img src="assets/images/3Apqreno-Technology-logo-from-reference.png" alt="3Apqreno Technology Logo">
+        <img src="assets/images/3Apqreno-Technology-logo-from-reference.png"
+             alt="3Apqreno Technology Logo">
       </a>
       <p class="footer-brand-name">3Apqreno Technology</p>
       <p class="footer-tagline">Your Technology .. Our Mission</p>
