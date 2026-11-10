@@ -208,6 +208,36 @@ button,input,textarea,select{font:inherit}
 @media(max-width:520px){.footer-columns{grid-template-columns:1fr;gap:28px}.footer-column{align-items:center}.footer-column h3{text-align:center}.footer-column>a{justify-content:center}.page-hero h1{font-size:60px}}
 /* ===== END HOMEPAGE ALIGNMENT ===== */
 
+
+/* ===== COMMUNITY BLOG FEED ===== */
+.community-panel{margin:0 auto 66px;padding:clamp(20px,3.5vw,38px);border:1px solid rgba(201,162,39,.28);border-radius:22px;background:linear-gradient(145deg,rgba(25,27,34,.97),rgba(13,15,20,.97));box-shadow:0 22px 65px rgba(0,0,0,.25)}
+.community-intro{max-width:760px;margin:0 auto 26px;text-align:center}
+.community-intro h2{font-size:clamp(27px,3.5vw,39px);line-height:1.2;margin:8px 0 10px;color:#F2F0EB}
+.community-intro p,.compose-content p{color:#AEB7C5;font-size:14px;line-height:1.8}
+.community-compose{display:flex;align-items:flex-start;gap:17px;padding:22px;border:1px solid rgba(255,255,255,.1);border-radius:16px;background:rgba(255,255,255,.035)}
+.compose-avatar{width:48px;height:48px;flex:0 0 48px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,#741321,#C9A227);color:#fff;font-weight:800;letter-spacing:-1px}
+.compose-content{min-width:0;flex:1}
+.compose-content strong{display:block;color:#F2F0EB;font-size:16px;margin:1px 0 4px}
+.compose-actions{display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin-top:15px}
+.community-primary{display:inline-flex;align-items:center;justify-content:center;min-height:43px;padding:10px 18px;border-radius:9px;background:#741321;color:#fff;font-size:13px;font-weight:700;border:1px solid #8B2635;transition:.2s}
+.community-primary:hover{background:#8B2635;transform:translateY(-1px)}
+.compose-note{color:#AEB7C5;font-size:11px}
+.community-toolbar{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:27px 0 16px}
+.community-categories{display:flex;flex-wrap:wrap;gap:8px}
+.community-filter{padding:8px 13px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:#191C24;color:#BFC5CE;font-size:11px;font-weight:600;cursor:pointer;transition:.2s}
+.community-filter:hover,.community-filter.active{color:#fff;border-color:#C9A227;background:rgba(201,162,39,.12)}
+.community-sort{color:#8F98A6;font-size:11px;white-space:nowrap}
+.community-feed{min-height:205px}
+.community-empty{min-height:205px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 20px;border:1px dashed rgba(255,255,255,.16);border-radius:15px;background:rgba(0,0,0,.13)}
+.community-empty-icon{width:43px;height:43px;display:grid;place-items:center;border-radius:50%;background:rgba(201,162,39,.12);color:#C9A227;font-size:22px;margin-bottom:12px}
+.community-empty h3{font-size:17px;color:#F2F0EB;margin-bottom:5px}
+.community-empty p{max-width:470px;color:#929BA9;font-size:12px;line-height:1.8}
+.community-policy{margin-top:15px;color:#AEB7C5;font-size:11px;text-align:center}
+.community-policy span{color:#C9A227;margin-right:5px}
+.editorial-heading{margin:0 auto 28px}
+@media(max-width:680px){.community-compose{padding:17px;gap:12px}.compose-avatar{width:40px;height:40px;flex-basis:40px}.community-toolbar{align-items:flex-start;flex-direction:column}.community-sort{padding-left:2px}.compose-actions{align-items:flex-start;flex-direction:column;gap:9px}}
+/* ===== END COMMUNITY BLOG FEED ===== */
+
 </style>
 </head>
 <body>
@@ -265,14 +295,6 @@ button,input,textarea,select{font:inherit}
 </section>
 <section class="section">
   <div class="page-wrap">
-    <div class="blog-toolbar" aria-label="Blog categories">
-      <button class="filter-chip active" data-filter="all">All Articles</button>
-      <button class="filter-chip" data-filter="maintenance">Maintenance</button>
-      <button class="filter-chip" data-filter="windows">Windows</button>
-      <button class="filter-chip" data-filter="hardware">Hardware</button>
-      <button class="filter-chip" data-filter="mac">macOS</button>
-      <button class="filter-chip" data-filter="security">Software &amp; Security</button>
-    </div>
     <div class="featured-post">
       <div class="featured-image"><img src="assets/images/maintenance-diagnostics.png" alt="Computer maintenance and diagnostics workspace" loading="lazy"></div>
       <div class="featured-copy">
@@ -283,9 +305,54 @@ button,input,textarea,select{font:inherit}
       </div>
     </div>
     <div class="section-heading blog-list-heading">
-      <span class="eyebrow">THE LATEST FROM OUR TECH DESK</span>
+      <span class="eyebrow">THE 3APQRENO COMMUNITY</span>
       <h2>Explore the <span>Knowledge Library</span></h2>
-      <p>Clear explanations and practical steps, written to make everyday technology easier to understand.</p>
+      <p>Read trusted technical guides, then join the conversation and share what you know with the community.</p>
+    </div>
+
+    <section class="community-panel" aria-labelledby="communityTitle">
+      <div class="community-intro">
+        <span class="post-label">SHARE • DISCOVER • CONNECT</span>
+        <h2 id="communityTitle">Your Tech Community</h2>
+        <p>Ask questions, share repair experiences, publish useful tips, and learn from other technology enthusiasts.</p>
+      </div>
+      <div class="community-compose">
+        <div class="compose-avatar" aria-hidden="true">3A</div>
+        <div class="compose-content">
+          <strong>Have something useful to share?</strong>
+          <p>Members can submit a post for review. It will only appear publicly after the 3Apqreno administrator approves it.</p>
+          <div class="compose-actions">
+            <a class="community-primary" href="login.html?redirect=blog.html">Sign in to create a post</a>
+            <span class="compose-note"><span aria-hidden="true">＋</span> Photos &amp; files available to signed-in members</span>
+          </div>
+        </div>
+      </div>
+      <div class="community-toolbar">
+        <div class="community-categories" role="group" aria-label="Community post categories">
+          <button class="community-filter active" type="button" data-community-filter="all">All topics</button>
+          <button class="community-filter" type="button" data-community-filter="performance">Performance</button>
+          <button class="community-filter" type="button" data-community-filter="windows">Windows</button>
+          <button class="community-filter" type="button" data-community-filter="software">Software &amp; Utilities</button>
+          <button class="community-filter" type="button" data-community-filter="drivers">Drivers &amp; Firmware</button>
+          <button class="community-filter" type="button" data-community-filter="macos">macOS</button>
+          <button class="community-filter" type="button" data-community-filter="linux">Linux</button>
+        </div>
+        <span class="community-sort">Community posts</span>
+      </div>
+      <div class="community-feed" id="communityFeed" aria-live="polite">
+        <div class="community-empty">
+          <span class="community-empty-icon" aria-hidden="true">✦</span>
+          <h3>The conversation starts here</h3>
+          <p>Approved member posts will appear here. Every submission is reviewed before publication.</p>
+        </div>
+      </div>
+      <p class="community-policy"><span aria-hidden="true">✓</span> Posts are published only after administrator approval.</p>
+    </section>
+
+    <div class="section-heading editorial-heading">
+      <span class="eyebrow">FROM THE 3APQRENO TECH DESK</span>
+      <h2>Guides &amp; <span>Technical Articles</span></h2>
+      <p>Practical reference articles prepared by 3Apqreno Technology.</p>
     </div>
     <div class="posts-grid" id="postsGrid">
       <article class="post-card" data-category="maintenance" data-search="slow computer performance startup storage overheating diagnostics">
