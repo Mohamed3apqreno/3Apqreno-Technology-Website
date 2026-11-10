@@ -447,6 +447,51 @@ button,input,textarea,select{font:inherit}
   .auth-provider-group { grid-template-columns: 1fr; }
 }
 /* ===== END FIREBASE AUTHENTICATION UI ===== */
+
+/* ===== BLOG EDITORIAL + COMMUNITY REDESIGN ===== */
+.blog-content-layout{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(270px,.8fr);gap:26px;align-items:start;margin-top:34px}
+.featured-post{overflow:hidden;border:1px solid rgba(255,255,255,.1);border-radius:22px;background:linear-gradient(120deg,rgba(22,25,33,.98),rgba(11,13,18,.96));box-shadow:0 22px 60px rgba(0,0,0,.24);margin-bottom:8px}
+.featured-image{min-height:330px}
+.featured-image img{width:100%;height:100%;min-height:330px;object-fit:cover}
+.featured-copy{padding:clamp(24px,4vw,42px)}
+.featured-copy h2{font-size:clamp(27px,3vw,39px);line-height:1.2;margin:12px 0}
+.featured-copy p{max-width:760px;color:#B7C0CD}
+.community-panel{margin:0;padding:clamp(20px,2.8vw,34px);border:1px solid rgba(255,255,255,.1);border-radius:22px;background:linear-gradient(150deg,rgba(24,27,35,.98),rgba(12,14,19,.98));box-shadow:0 22px 65px rgba(0,0,0,.22);min-width:0}
+.community-intro{text-align:left;margin:0 0 24px}
+.community-intro h2{font-size:clamp(26px,3vw,35px);line-height:1.2;margin:8px 0 9px;color:#F2F0EB}
+.community-intro p{max-width:680px;color:#AEB7C5;font-size:14px}
+.community-compose{padding:19px;border:1px solid rgba(215,25,32,.25);background:linear-gradient(110deg,rgba(215,25,32,.09),rgba(23,105,170,.08));border-radius:16px}
+.community-toolbar{display:block;margin:28px 0 16px;padding-bottom:15px;border-bottom:1px solid rgba(255,255,255,.09)}
+.community-categories{display:flex;gap:8px;flex-wrap:wrap}
+.community-filter{border:1px solid rgba(255,255,255,.13);background:#141821;color:#BFC7D2;border-radius:30px;padding:8px 13px;font-size:11px;cursor:pointer;transition:.2s}
+.community-filter:hover,.community-filter.active{background:rgba(215,25,32,.15);border-color:rgba(215,25,32,.7);color:#fff}
+.community-sort{display:block;margin-top:14px;color:#C9A227;font-size:11px;letter-spacing:1.5px;text-transform:uppercase}
+.community-empty{padding:40px 18px;text-align:center;border:1px dashed rgba(255,255,255,.16);border-radius:16px;background:rgba(255,255,255,.018)}
+.community-empty-icon{display:grid;place-items:center;width:48px;height:48px;margin:0 auto 14px;border-radius:50%;font-size:23px;color:#C9A227;background:rgba(201,162,39,.1)}
+.community-empty h3{font-size:19px;margin-bottom:7px}
+.community-empty p{max-width:420px;margin:0 auto 12px;color:#AEB7C5;font-size:13px}
+.community-policy{margin-top:17px;color:#AEB7C5;font-size:11px}
+.community-policy span{color:#C9A227;margin-right:6px}
+.blog-sidebar{display:grid;gap:18px;min-width:0}
+.blog-side-card{padding:23px;border:1px solid rgba(255,255,255,.1);border-radius:18px;background:linear-gradient(145deg,rgba(24,27,35,.97),rgba(12,14,19,.97))}
+.blog-side-card h3{font-size:20px;line-height:1.3;margin:9px 0 14px;color:#F5F5F5}
+.editorial-link{width:100%;display:grid;grid-template-columns:30px minmax(0,1fr) 15px;gap:10px;align-items:center;text-align:left;padding:13px 0;border:0;border-top:1px solid rgba(255,255,255,.08);background:none;color:#fff;cursor:pointer}
+.editorial-link:hover strong{color:#E05A60}
+.editorial-number{font-size:11px;color:#C9A227;font-weight:700}
+.editorial-link strong{display:block;font-size:12px;line-height:1.5;font-weight:600;transition:color .2s}
+.editorial-link small{display:block;margin-top:3px;color:#8994A4;font-size:10px}
+.editorial-arrow{color:#1769AA;font-size:17px}
+.topic-side-card>p,.moderation-card p{font-size:12px;color:#AEB7C5;line-height:1.8}
+.topic-cloud{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+.topic-cloud button{padding:7px 10px;border-radius:20px;border:1px solid rgba(23,105,170,.32);background:rgba(23,105,170,.08);color:#C9DDF0;font-size:10px;cursor:pointer}
+.topic-cloud button:hover{border-color:#D71920;background:rgba(215,25,32,.12);color:#fff}
+.moderation-card{background:linear-gradient(145deg,rgba(23,105,170,.12),rgba(201,162,39,.07))}
+.moderation-mark{display:grid;place-items:center;width:35px;height:35px;border-radius:50%;background:rgba(201,162,39,.13);color:#C9A227;font-weight:700}
+.moderation-card h3{margin-bottom:7px}
+#emptyCreatePost{margin-top:6px}
+@media(max-width:900px){.blog-content-layout{grid-template-columns:1fr}.blog-sidebar{grid-template-columns:repeat(2,minmax(0,1fr))}.moderation-card{grid-column:1/-1}}
+@media(max-width:600px){.blog-sidebar{grid-template-columns:1fr}.moderation-card{grid-column:auto}.featured-image,.featured-image img{min-height:220px}.community-compose{padding:15px}.compose-actions{align-items:flex-start;flex-direction:column}.community-categories{gap:7px}}
+/* ===== END BLOG EDITORIAL + COMMUNITY REDESIGN ===== */
 </style>
 </head>
 <body>
@@ -497,54 +542,86 @@ button,input,textarea,select{font:inherit}
         <button class="text-link" data-article="diagnosis">Read the guide <span>→</span></button>
       </div>
     </div>
-    <div class="section-heading blog-list-heading">
-      <span class="eyebrow">THE 3APQRENO COMMUNITY</span>
-      <h2>Explore the <span>Knowledge Library</span></h2>
-      <p>Read trusted technical guides, then join the conversation and share what you know with the community.</p>
-    </div>
-
-    <section class="community-panel" aria-labelledby="communityTitle">
-      <div class="community-intro">
-        <span class="post-label">SHARE • DISCOVER • CONNECT</span>
-        <h2 id="communityTitle">Your Tech Community</h2>
-        <p>Ask questions, share repair experiences, publish useful tips, and learn from other technology enthusiasts.</p>
-      </div>
-
-      <div class="community-compose">
-        <div class="compose-avatar" aria-hidden="true">3A</div>
-        <div class="compose-content">
-          <strong>Have something useful to share?</strong>
-          <p>Start a discussion, share a repair story, or upload supporting photos and files. Every new post stays private until Mohamed approves it.</p>
-          <div class="compose-actions">
-            <button class="community-primary" type="button" id="startCommunityPost">＋ Create a post</button>
-            <span class="compose-note">Sign-in required • Posts are reviewed before publication</span>
+    <div class="blog-content-layout">
+      <section class="community-panel" aria-labelledby="communityTitle">
+        <div class="community-intro">
+          <span class="post-label">SHARE • DISCOVER • CONNECT</span>
+          <h2 id="communityTitle">The 3Apqreno Community</h2>
+          <p>A place for real repair experiences, technical questions, practical solutions, and ideas shared by people who love technology.</p>
+        </div>
+        <div class="community-compose">
+          <div class="compose-avatar" aria-hidden="true">3A</div>
+          <div class="compose-content">
+            <strong>Have something useful to share?</strong>
+            <p>Publish a technical tip, ask the community, or tell the story behind a repair. Your post stays private until Mohamed reviews and approves it.</p>
+            <div class="compose-actions">
+              <button class="community-primary" type="button" id="startCommunityPost">＋ Create a post</button>
+              <span class="compose-note">Members only • Admin approval before publication</span>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="community-toolbar">
-        <div class="community-categories" role="group" aria-label="Community post categories">
-          <button class="community-filter active" type="button" data-community-filter="all">All topics</button>
-          <button class="community-filter" type="button" data-community-filter="performance">Performance &amp; Optimization</button>
-          <button class="community-filter" type="button" data-community-filter="windows">Windows Support</button>
-          <button class="community-filter" type="button" data-community-filter="software">Software &amp; Utilities</button>
-          <button class="community-filter" type="button" data-community-filter="drivers">Drivers &amp; Firmware</button>
-          <button class="community-filter" type="button" data-community-filter="macos">macOS Support</button>
-          <button class="community-filter" type="button" data-community-filter="linux">Linux Support</button>
+        <div class="community-toolbar">
+          <div class="community-categories" role="group" aria-label="Community post categories">
+            <button class="community-filter active" type="button" data-community-filter="all">All discussions</button>
+            <button class="community-filter" type="button" data-community-filter="performance">Performance</button>
+            <button class="community-filter" type="button" data-community-filter="windows">Windows</button>
+            <button class="community-filter" type="button" data-community-filter="software">Software</button>
+            <button class="community-filter" type="button" data-community-filter="drivers">Drivers &amp; Firmware</button>
+            <button class="community-filter" type="button" data-community-filter="macos">macOS</button>
+            <button class="community-filter" type="button" data-community-filter="linux">Linux</button>
+          </div>
+          <span class="community-sort">Community feed</span>
         </div>
-        <span class="community-sort">Community discussions</span>
-      </div>
-
-      <div class="community-feed" id="communityFeed" aria-live="polite">
-        <div class="community-empty" id="communityEmpty">
-          <span class="community-empty-icon" aria-hidden="true">✦</span>
-          <h3>The conversation starts here</h3>
-          <p>Approved member posts will appear here. Submitted posts remain private until administrator approval.</p>
+        <div class="community-feed" id="communityFeed" aria-live="polite">
+          <div class="community-empty" id="communityEmpty">
+            <span class="community-empty-icon" aria-hidden="true">✦</span>
+            <h3>The next useful discussion could be yours</h3>
+            <p>Approved member posts will appear here. Every submission stays private until administrator approval.</p>
+            <button class="text-link" type="button" id="emptyCreatePost">Start a discussion <span>→</span></button>
+          </div>
         </div>
-      </div>
-      <p class="community-policy"><span aria-hidden="true">✓</span> Only administrator-approved posts can appear publicly.</p>
-    </section>
-
+        <p class="community-policy"><span aria-hidden="true">✓</span> Only posts approved by Mohamed are visible to the public.</p>
+      </section>
+      <aside class="blog-sidebar" aria-label="Blog highlights and topics">
+        <section class="blog-side-card">
+          <span class="post-label">FROM THE TECH DESK</span>
+          <h3>Worth a closer look</h3>
+          <button class="editorial-link" type="button" data-article="slow-pc" data-search="slow computer performance startup storage overheating">
+            <span class="editorial-number">01</span><span><strong>Investigating a slow computer</strong><small>Performance · 5 min read</small></span><span class="editorial-arrow">↗</span>
+          </button>
+          <button class="editorial-link" type="button" data-article="reinstall" data-search="windows reinstall backup drivers uefi">
+            <span class="editorial-number">02</span><span><strong>Before reinstalling Windows</strong><small>Windows · 6 min read</small></span><span class="editorial-arrow">↗</span>
+          </button>
+          <button class="editorial-link" type="button" data-article="bios" data-search="bios uefi firmware boot gpt mbr">
+            <span class="editorial-number">03</span><span><strong>BIOS and UEFI explained</strong><small>Firmware · 4 min read</small></span><span class="editorial-arrow">↗</span>
+          </button>
+          <button class="editorial-link" type="button" data-article="drivers" data-search="drivers firmware model hardware device support">
+            <span class="editorial-number">04</span><span><strong>Finding the right device driver</strong><small>Drivers · 4 min read</small></span><span class="editorial-arrow">↗</span>
+          </button>
+          <button class="editorial-link" type="button" data-article="downloads" data-search="software downloads security official sources installers">
+            <span class="editorial-number">05</span><span><strong>Safer software downloads</strong><small>Software · 4 min read</small></span><span class="editorial-arrow">↗</span>
+          </button>
+        </section>
+        <section class="blog-side-card topic-side-card">
+          <span class="post-label">EXPLORE THE COMMUNITY</span>
+          <h3>Technical topics</h3>
+          <p>Choose a subject to explore approved community discussions.</p>
+          <div class="topic-cloud">
+            <button type="button" data-side-filter="windows">Windows Support</button>
+            <button type="button" data-side-filter="performance">Performance</button>
+            <button type="button" data-side-filter="drivers">Drivers &amp; Firmware</button>
+            <button type="button" data-side-filter="software">Software &amp; Utilities</button>
+            <button type="button" data-side-filter="macos">macOS</button>
+            <button type="button" data-side-filter="linux">Linux</button>
+          </div>
+        </section>
+        <section class="blog-side-card moderation-card">
+          <span class="moderation-mark" aria-hidden="true">✓</span>
+          <h3>A thoughtful, trusted community</h3>
+          <p>Every member submission is reviewed first. Only approved posts are published, helping keep discussions useful and respectful.</p>
+        </section>
+      </aside>
+    </div>
     <dialog class="community-dialog" id="communityComposer" aria-labelledby="composerTitle">
       <button class="dialog-close" id="closeComposer" type="button" aria-label="Close">×</button>
       <span class="post-label">COMMUNITY CONTRIBUTION</span>
@@ -574,38 +651,6 @@ button,input,textarea,select{font:inherit}
         <p class="composer-status" id="composerStatus" role="status" aria-live="polite"></p>
       </form>
     </dialog>
-    <div class="section-heading editorial-heading">
-      <span class="eyebrow">FROM THE 3APQRENO TECH DESK</span>
-      <h2>Guides &amp; <span>Technical Articles</span></h2>
-      <p>Practical reference articles prepared by 3Apqreno Technology.</p>
-    </div>
-    <div class="posts-grid" id="postsGrid">
-      <article class="post-card" data-category="maintenance" data-search="slow computer performance startup storage overheating diagnostics">
-        <div class="post-art art-red"><span>01</span><b>PERFORMANCE</b><i>↗</i></div>
-        <div class="post-copy"><div class="post-meta">MAINTENANCE <span>•</span> 5 MIN READ</div><h3>How to Investigate a Slow Computer</h3><p>Check startup activity, available storage, background processes, and thermal behavior before deciding on a fix.</p><button class="text-link" data-article="slow-pc">Read article <span>→</span></button></div>
-      </article>
-      <article class="post-card" data-category="windows" data-search="windows reinstall installation backup drivers uefi preparation">
-        <div class="post-art art-blue"><span>02</span><b>WINDOWS</b><i>▣</i></div>
-        <div class="post-copy"><div class="post-meta">WINDOWS <span>•</span> 6 MIN READ</div><h3>Before You Reinstall Windows</h3><p>A preparation checklist for backups, drivers, installation media, boot mode, and post-install setup.</p><button class="text-link" data-article="reinstall">Read article <span>→</span></button></div>
-      </article>
-      <article class="post-card" data-category="hardware" data-search="bios uefi firmware boot gpt mbr motherboard">
-        <div class="post-art art-gold"><span>03</span><b>FIRMWARE</b><i>⌁</i></div>
-        <div class="post-copy"><div class="post-meta">HARDWARE <span>•</span> 4 MIN READ</div><h3>BIOS and UEFI: What Is the Difference?</h3><p>Understand modern boot modes, firmware settings, and why configuration matters during installation.</p><button class="text-link" data-article="bios">Read article <span>→</span></button></div>
-      </article>
-      <article class="post-card" data-category="hardware" data-search="drivers firmware model hardware device support">
-        <div class="post-art art-blue"><span>04</span><b>DRIVERS</b><i>⌘</i></div>
-        <div class="post-copy"><div class="post-meta">HARDWARE <span>•</span> 4 MIN READ</div><h3>Why the Correct Driver Matters</h3><p>Match drivers to the exact device model and hardware revision, and know when the manufacturer is the best source.</p><button class="text-link" data-article="drivers">Read article <span>→</span></button></div>
-      </article>
-      <article class="post-card" data-category="mac" data-search="macos boot camp windows mac compatibility drivers">
-        <div class="post-art art-silver"><span>05</span><b>MAC SUPPORT</b><i>⌘</i></div>
-        <div class="post-copy"><div class="post-meta">macOS <span>•</span> 5 MIN READ</div><h3>Windows on a Mac: Start With Compatibility</h3><p>What to check before planning a Boot Camp installation, including model support, storage, and drivers.</p><button class="text-link" data-article="mac">Read article <span>→</span></button></div>
-      </article>
-      <article class="post-card" data-category="security" data-search="software downloads security official sources installers">
-        <div class="post-art art-red"><span>06</span><b>SAFER SOFTWARE</b><i>◇</i></div>
-        <div class="post-copy"><div class="post-meta">SOFTWARE &amp; SECURITY <span>•</span> 4 MIN READ</div><h3>Build a Safer Software Download Habit</h3><p>Use trusted publishers, inspect installers, avoid bundled extras, and keep a record of what you install.</p><button class="text-link" data-article="downloads">Read article <span>→</span></button></div>
-      </article>
-    </div>
-    <p class="empty-state" id="emptyState" hidden>No articles match that search. Try another keyword or category.</p>
   </div>
 </section>
 <dialog class="article-dialog" id="articleDialog" aria-labelledby="dialogTitle">
@@ -781,11 +826,17 @@ drivers:{title:"Why the Correct Driver Matters",body:[["p","A driver connects th
 mac:{title:"Windows on a Mac: Start With Compatibility",body:[["p","Boot Camp support depends on the Mac model and its hardware generation. Confirm the exact model and required support software before preparing Windows."],["h","Before you begin"],["ul",["Identify the exact Mac model and year.","Check Apple's Boot Camp compatibility guidance.","Back up macOS data before repartitioning.","Confirm available storage and prepare the correct support drivers.","Keep macOS recovery options available."]],["p","Intel Macs and Apple silicon Macs use different approaches to Windows compatibility."]]},
 downloads:{title:"Build a Safer Software Download Habit",body:[["p","Software downloads are safest when the publisher and source are clear. Search results and download mirrors can contain misleading buttons or repackaged installers."],["h","A safer routine"],["ul",["Download from the publisher or an official app store.","Check the publisher name and digital signature when available.","Read installer screens instead of accepting every optional offer.","Keep track of where installers came from.","Scan unexpected files and keep security protection enabled."]],["p","If a download page is full of deceptive buttons, leave it and find the publisher's official page."]]}
 };
-const grid=document.getElementById("postsGrid"), search=document.getElementById("pageSearch"), chips=[...document.querySelectorAll(".filter-chip")], empty=document.getElementById("emptyState");
-let active="all";
-function applyFilters(){const q=(search?.value||"").trim().toLowerCase();let visible=0;grid?.querySelectorAll(".post-card").forEach(card=>{const okCat=active==="all"||card.dataset.category===active;const okText=!q||(card.innerText+" "+card.dataset.search).toLowerCase().includes(q);card.hidden=!(okCat&&okText);if(!card.hidden)visible++;});if(empty)empty.hidden=visible!==0;}
-chips.forEach(chip=>chip.addEventListener("click",()=>{active=chip.dataset.filter;chips.forEach(x=>x.classList.toggle("active",x===chip));applyFilters();}));
-search?.addEventListener("input",applyFilters);
+const search=document.getElementById("pageSearch");
+const editorialLinks=[...document.querySelectorAll(".editorial-link")];
+search?.addEventListener("input",()=>{
+  const q=search.value.trim().toLowerCase();
+  editorialLinks.forEach(link=>{link.hidden=!!q&&!((link.innerText+" "+(link.dataset.search||"")).toLowerCase().includes(q));});
+});
+document.querySelectorAll("[data-side-filter]").forEach(button=>button.addEventListener("click",()=>{
+  const target=document.querySelector('[data-community-filter="'+button.dataset.sideFilter+'"]');
+  target?.click();
+  document.querySelector(".community-panel")?.scrollIntoView({behavior:"smooth",block:"start"});
+}));
 const dialog=document.getElementById("articleDialog"),dialogTitle=document.getElementById("dialogTitle"),dialogBody=document.getElementById("dialogBody");
 function openArticle(id){const item=articles[id];if(!item)return;dialogTitle.textContent=item.title;dialogBody.replaceChildren();item.body.forEach(([type,value])=>{const el=document.createElement(type==="h"?"h3":type==="ul"?"ul":"p");if(type==="ul")value.forEach(line=>{const li=document.createElement("li");li.textContent=line;el.append(li);});else el.textContent=value;dialogBody.append(el);});dialog.showModal();}
 document.querySelectorAll("[data-article]").forEach(btn=>btn.addEventListener("click",()=>openArticle(btn.dataset.article)));
@@ -805,6 +856,7 @@ function openComposer(){
   composer?.showModal();
 }
 document.getElementById("startCommunityPost")?.addEventListener("click",openComposer);
+document.getElementById("emptyCreatePost")?.addEventListener("click",openComposer);
 document.getElementById("closeComposer")?.addEventListener("click",closeComposer);
 document.getElementById("cancelComposer")?.addEventListener("click",closeComposer);
 composer?.addEventListener("click",e=>{if(e.target===composer)closeComposer();});
