@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your 3Apqreno Technology account.">
+  <title>My Account | 3Apqreno Technology</title>
+  <link rel="icon" type="image/png" href="assets/images/3Apqreno-favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--black:#0B0D12;--dark:#111827;--red:#D71920;--blue:#1769AA;--gold:#C9A227;--white:#fff;--gray:#D1D5DB;--muted:#AEB5C0}
+    *{box-sizing:border-box;margin:0;padding:0}body{min-height:100vh;background:var(--black);color:var(--white);font-family:Poppins,Arial,sans-serif;line-height:1.7}a{color:inherit;text-decoration:none}button{font:inherit}
+    .site-header{background:#08090D;border-bottom:1px solid rgba(255,255,255,.08);padding:14px 5%}.header-container{max-width:1400px;min-height:65px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:30px}.brand img{display:block;width:270px;height:auto;object-fit:contain}.main-nav{display:flex;align-items:center;gap:28px}.main-nav a{font-size:14px;font-weight:600;color:#fff}.main-nav a:hover,.main-nav a.active{color:var(--red)}
+    .account-section{min-height:calc(100vh - 95px);padding:75px 5%;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse 45% 60% at 15% 45%,rgba(215,25,32,.12),transparent 75%),radial-gradient(ellipse 45% 60% at 85% 55%,rgba(23,105,170,.15),transparent 75%),linear-gradient(145deg,#08090D,#111318 55%,#08090D)}
+    .account-card{width:100%;max-width:760px;padding:42px;background:linear-gradient(155deg,rgba(25,29,39,.98),rgba(13,16,23,.98));border:1px solid rgba(201,162,39,.32);border-radius:19px;box-shadow:0 22px 65px rgba(0,0,0,.42)}.eyebrow{color:var(--gold);font-size:12px;font-weight:700;letter-spacing:3px}.account-card h1{font-size:clamp(30px,4vw,43px);line-height:1.2;margin:12px 0 8px}.intro{color:var(--muted);font-size:14px;margin-bottom:28px}.profile{display:flex;align-items:center;gap:18px;padding:22px;background:#090B10;border:1px solid #303846;border-radius:13px;margin-bottom:22px}.avatar{width:64px;height:64px;flex:0 0 64px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--red),var(--blue));font-size:25px;font-weight:700}.profile h2{font-size:19px;overflow-wrap:anywhere}.profile p{color:var(--muted);font-size:12px;overflow-wrap:anywhere}.details{display:grid;grid-template-columns:1fr 1fr;gap:14px}.detail{padding:17px;background:rgba(8,10,15,.65);border:1px solid #303846;border-radius:10px;min-width:0}.detail span{display:block;color:var(--gold);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase}.detail strong{display:block;margin-top:5px;font-size:14px;overflow-wrap:anywhere}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border-radius:8px;border:1px solid var(--red);background:var(--red);color:#fff;font-size:13px;font-weight:700;cursor:pointer}.btn.secondary{background:transparent;border-color:#465064}.btn:hover{background:var(--blue);border-color:var(--blue)}.status{min-height:22px;margin-top:16px;color:var(--gold);font-size:12px}.loading{color:var(--muted);text-align:center;padding:30px}
+    .manage-section{margin-top:30px;padding-top:25px;border-top:1px solid rgba(255,255,255,.1)}.manage-section h2{font-size:19px;margin-bottom:5px}.manage-section>p{color:var(--muted);font-size:12px;margin-bottom:17px}.edit-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:7px}.field label{font-size:12px;color:var(--gold);font-weight:600}.field input{width:100%;min-width:0;padding:12px 13px;border-radius:8px;border:1px solid #3B4658;background:#090B10;color:#fff;font:inherit;font-size:13px;outline:none}.field input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,105,170,.15)}.manage-section .btn{margin-top:14px}.manage-note{font-size:11px;color:var(--muted);margin-top:10px;line-height:1.6}.manage-message{min-height:20px;color:var(--gold);font-size:12px;margin-top:9px}.manage-message.error{color:#FF777D}.manage-message.success{color:#71D6A0}#phoneRecaptcha{margin-top:12px;overflow-x:auto}.code-row{margin-top:12px}.hidden{display:none!important}
+    @media(max-width:850px){.header-container{flex-direction:column;gap:18px}.brand img{width:230px}.main-nav{justify-content:center;flex-wrap:wrap;gap:15px 22px}}
+    @media(max-width:600px){.edit-grid{grid-template-columns:1fr}.account-section{padding:40px 5%}.account-card{padding:27px 20px}.details{grid-template-columns:1fr}.profile{align-items:flex-start}.main-nav a{font-size:12px}}
+  </style>
+</head>
+<body>
+  <header class="site-header"><div class="header-container">
+    <a href="index.html" class="brand"><img src="assets/images/3Apqreno-Technology-logo-from-reference.png" alt="3Apqreno Technology Logo"></a>
+    <nav class="main-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="index.html#services">Services</a><a href="index.html#tools">Tools</a><a href="index.html#contact">Contact</a></nav>
+  </div></header>
+  <main class="account-section"><section class="account-card" aria-labelledby="accountTitle">
+    <span class="eyebrow">3APQRENO TECHNOLOGY</span><h1 id="accountTitle">My Account</h1><p class="intro">Your personal account information and sign-in details.</p>
+    <div id="loadingState" class="loading">Checking your sign-in status...</div>
+    <div id="accountContent" hidden>
+      <div class="profile"><div class="avatar" id="avatarInitial">3A</div><div><h2 id="displayName">Welcome</h2><p id="primaryContact"></p></div></div>
+      <div class="details">
+        <div class="detail"><span>Email address</span><strong id="emailValue">—</strong></div>
+        <div class="detail"><span>Phone number</span><strong id="phoneValue">—</strong></div>
+        <div class="detail"><span>Sign-in method</span><strong id="providerValue">—</strong></div>
+        <div class="detail"><span>Email verification</span><strong id="verifiedValue">—</strong></div>
+        <div class="detail"><span>Account created</span><strong id="createdValue">—</strong></div>
+        <div class="detail"><span>Last sign-in</span><strong id="lastSignInValue">—</strong></div>
+      </div>
+      <section class="manage-section" aria-labelledby="profileEditTitle">
+        <h2 id="profileEditTitle">Personal Information</h2>
+        <p>Update the name displayed on your 3Apqreno account.</p>
+        <div class="edit-grid">
+          <div class="field"><label for="editName">Display name</label><input id="editName" type="text" autocomplete="name" maxlength="80" placeholder="Your name"></div>
+        </div>
+        <button class="btn" id="saveNameButton" type="button">Save Changes</button>
+        <p class="manage-message" id="nameMessage" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="manage-section" aria-labelledby="phoneEditTitle">
+        <h2 id="phoneEditTitle">Phone Number</h2>
+        <p>Add and verify a phone number to connect it to this account.</p>
+        <div class="edit-grid">
+          <div class="field"><label for="editPhone">Phone number (with country code)</label><input id="editPhone" type="tel" autocomplete="tel" placeholder="+201xxxxxxxxx"></div>
+        </div>
+        <div id="phoneRecaptcha"></div>
+        <button class="btn" id="sendPhoneCodeButton" type="button">Send Verification Code</button>
+        <div class="field code-row hidden" id="phoneCodeArea"><label for="phoneCode">SMS verification code</label><input id="phoneCode" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="Enter the 6-digit code"></div>
+        <button class="btn hidden" id="verifyPhoneButton" type="button">Verify &amp; Add Phone</button>
+        <p class="manage-note">A Google reCAPTCHA check and an SMS verification code are required. Firebase phone-auth limits and billing settings may apply.</p>
+        <p class="manage-message" id="phoneMessage" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="manage-section" aria-labelledby="passwordEditTitle">
+        <h2 id="passwordEditTitle">Password &amp; Security</h2>
+        <p id="passwordHelp">Change your password after confirming your current password.</p>
+        <div id="passwordForm">
+          <div class="edit-grid">
+            <div class="field"><label for="currentPassword">Current password</label><input id="currentPassword" type="password" autocomplete="current-password" placeholder="Current password"></div>
+            <div class="field"><label for="newPassword">New password</label><input id="newPassword" type="password" autocomplete="new-password" minlength="6" placeholder="At least 6 characters"></div>
+          </div>
+          <button class="btn" id="changePasswordButton" type="button">Update Password</button>
+        </div>
+        <button class="btn secondary hidden" id="resetPasswordButton" type="button">Send Password Reset Email</button>
+        <p class="manage-note">For accounts created with Google or Facebook, change the password with that provider. If this account also has an email address, you can request a Firebase password-reset email.</p>
+        <p class="manage-message" id="passwordMessage" role="status" aria-live="polite"></p>
+      </section>
+
+      <div class="actions"><a class="btn secondary" href="index.html">Back to Home</a><button class="btn" id="signOutButton" type="button">Sign Out</button></div>
+      <p class="status" id="accountMessage" role="status" aria-live="polite"></p>
+    </div>
+  </section></main>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut, updateProfile, updatePassword,
+      EmailAuthProvider, reauthenticateWithCredential, linkWithPhoneNumber,
+      RecaptchaVerifier, sendPasswordResetEmail, reload
+    } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-auth.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyDCohB54hX9woeYIVMojXVp1NhdrBqHlLo",
+      authDomain: "apqreno-technology.firebaseapp.com",
+      projectId: "apqreno-technology",
+      storageBucket: "apqreno-technology.firebasestorage.app",
+      messagingSenderId: "948093025378",
+      appId: "1:948093025378:web:da2ed1d61f1f520cb1653b",
+      measurementId: "G-SD36Y9JY8N"
+    };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    const $ = id => document.getElementById(id);
+    let currentUser = null;
+    let phoneConfirmation = null;
+    let phoneRecaptcha = null;
+    const show = (id, value) => $(id).textContent = value || '—';
+    function setMessage(id, message, type='') {
+      const el = $(id); el.textContent = message; el.className = `manage-message ${type}`.trim();
+    }
+    function providerNames(user){
+      const map={'google.com':'Google','facebook.com':'Facebook','password':'Email & Password','phone':'Phone Number'};
+      const names=[...new Set((user.providerData||[]).map(p=>map[p.providerId]||p.providerId))];
+      return names.join(', ') || 'Firebase account';
+    }
+    function refreshAccount(user){
+      const name=user.displayName || user.email?.split('@')[0] || user.phoneNumber || '3Apqreno User';
+      show('displayName',name); show('primaryContact',user.email || user.phoneNumber || 'Account active');
+      show('emailValue',user.email); show('phoneValue',user.phoneNumber);
+      show('providerValue',providerNames(user)); show('verifiedValue',user.email ? (user.emailVerified?'Verified':'Not verified') : 'Not applicable');
+      const created=user.metadata?.creationTime ? new Date(user.metadata.creationTime).toLocaleString() : '—';
+      const last=user.metadata?.lastSignInTime ? new Date(user.metadata.lastSignInTime).toLocaleString() : '—';
+      show('createdValue',created); show('lastSignInValue',last);
+      $('avatarInitial').textContent=(name.trim().split(/\s+/).map(x=>x[0]).slice(0,2).join('')||'3A').toUpperCase();
+      $('editName').value=user.displayName || '';
+      const hasPassword=(user.providerData||[]).some(p=>p.providerId==='password');
+      $('passwordForm').classList.toggle('hidden',!hasPassword);
+      $('resetPasswordButton').classList.toggle('hidden',!user.email || !hasPassword);
+      $('passwordHelp').textContent=hasPassword ? 'Change your password after confirming your current password.' : 'This account does not use an email-and-password sign-in method.';
+    }
+    onAuthStateChanged(auth, user => {
+      if (!user) { window.location.replace('login.html'); return; }
+      currentUser=user;
+      $('loadingState').hidden=true; $('accountContent').hidden=false;
+      refreshAccount(user);
+    });
+
+    $('saveNameButton').addEventListener('click', async () => {
+      const name=$('editName').value.trim();
+      if(!name){setMessage('nameMessage','Please enter a display name.','error');return;}
+      $('saveNameButton').disabled=true;
+      try{await updateProfile(auth.currentUser,{displayName:name});await reload(auth.currentUser);currentUser=auth.currentUser;refreshAccount(currentUser);setMessage('nameMessage','Your display name was updated successfully.','success');}
+      catch(error){setMessage('nameMessage',error.message || 'Unable to update your name.','error');}
+      finally{$('saveNameButton').disabled=false;}
+    });
+
+    $('sendPhoneCodeButton').addEventListener('click', async () => {
+      const phone=$('editPhone').value.trim().replace(/[\s()-]/g,'');
+      if(!/^\+[1-9]\d{7,14}$/.test(phone)){setMessage('phoneMessage','Enter a valid phone number including the country code, for example +201xxxxxxxxx.','error');return;}
+      if(!auth.currentUser){return;}
+      $('sendPhoneCodeButton').disabled=true;
+      try{
+        if(!phoneRecaptcha) phoneRecaptcha=new RecaptchaVerifier(auth,'phoneRecaptcha',{size:'normal'});
+        phoneConfirmation=await linkWithPhoneNumber(auth.currentUser,phone,phoneRecaptcha);
+        $('phoneCodeArea').classList.remove('hidden');$('verifyPhoneButton').classList.remove('hidden');
+        setMessage('phoneMessage','Verification code sent. Check your phone.','success');
+      }catch(error){
+        if(phoneRecaptcha){try{await phoneRecaptcha.clear();}catch{}phoneRecaptcha=null;}
+        setMessage('phoneMessage',error.code==='auth/provider-already-linked'?'A phone number is already linked to this account.':(error.message || 'Unable to send the verification code.'),'error');
+      }finally{$('sendPhoneCodeButton').disabled=false;}
+    });
+
+    $('verifyPhoneButton').addEventListener('click', async () => {
+      const code=$('phoneCode').value.trim();
+      if(!phoneConfirmation){setMessage('phoneMessage','Please request a verification code first.','error');return;}
+      if(!/^\d{6}$/.test(code)){setMessage('phoneMessage','Enter the 6-digit code sent to your phone.','error');return;}
+      $('verifyPhoneButton').disabled=true;
+      try{
+        await phoneConfirmation.confirm(code);await reload(auth.currentUser);currentUser=auth.currentUser;refreshAccount(currentUser);
+        setMessage('phoneMessage','Your phone number has been verified and linked to your account.','success');
+        $('phoneCodeArea').classList.add('hidden');$('verifyPhoneButton').classList.add('hidden');$('editPhone').value='';phoneConfirmation=null;
+        if(phoneRecaptcha){await phoneRecaptcha.clear();phoneRecaptcha=null;}
+        $('phoneRecaptcha').innerHTML='';
+      }catch(error){setMessage('phoneMessage',error.message || 'Phone verification failed.','error');}
+      finally{$('verifyPhoneButton').disabled=false;}
+    });
+
+    $('changePasswordButton').addEventListener('click', async () => {
+      const oldPassword=$('currentPassword').value;
+      const newPassword=$('newPassword').value;
+      if(!oldPassword || newPassword.length<6){setMessage('passwordMessage','Enter your current password and a new password of at least 6 characters.','error');return;}
+      $('changePasswordButton').disabled=true;
+      try{
+        const credential=EmailAuthProvider.credential(auth.currentUser.email,oldPassword);
+        await reauthenticateWithCredential(auth.currentUser,credential);
+        await updatePassword(auth.currentUser,newPassword);
+        $('currentPassword').value='';$('newPassword').value='';
+        setMessage('passwordMessage','Your password has been changed successfully.','success');
+      }catch(error){
+        const message=error.code==='auth/wrong-password' || error.code==='auth/invalid-credential' ? 'The current password is incorrect.' : error.code==='auth/requires-recent-login' ? 'Please sign out and sign in again, then retry.' : (error.message || 'Unable to change your password.');
+        setMessage('passwordMessage',message,'error');
+      }finally{$('changePasswordButton').disabled=false;}
+    });
+
+    $('resetPasswordButton').addEventListener('click',async()=>{
+      try{await sendPasswordResetEmail(auth,auth.currentUser.email);setMessage('passwordMessage','A password reset email has been sent to '+auth.currentUser.email+'.','success');}
+      catch(error){setMessage('passwordMessage',error.message || 'Unable to send the reset email.','error');}
+    });
+
+    $('signOutButton').addEventListener('click',async()=>{
+      $('signOutButton').disabled=true; $('accountMessage').textContent='Signing out...';
+      try { await signOut(auth); window.location.replace('login.html'); }
+      catch(error){ $('accountMessage').textContent=error.message || 'Unable to sign out. Please try again.'; $('signOutButton').disabled=false; }
+    });
+  </script>
+  
+<!-- 3Apqreno Floating WhatsApp Button -->
+<a href="https://wa.me/201030117098"
+   class="floating-whatsapp"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Chat with us on WhatsApp">
+
+  <svg viewBox="0 0 24 24" width="34" height="34"
+       fill="currentColor" aria-hidden="true">
+    <path d="M20.52 3.48A11.8 11.8 0 0 0 12.13 0C5.6 0 .28 5.32.28 11.85c0 2.09.55 4.14 1.6 5.95L.2 24l6.36-1.67a11.8 11.8 0 0 0 5.57 1.4h.01C18.67 23.73 24 18.4 24 11.87a11.8 11.8 0 0 0-3.48-8.39ZM12.14 21.7h-.01a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-3.78.99 1.01-3.68-.23-.38a9.8 9.8 0 0 1-1.5-5.2c0-5.42 4.42-9.84 9.85-9.84a9.78 9.78 0 0 1 6.96 2.89 9.78 9.78 0 0 1 2.88 6.97c0 5.43-4.42 9.85-9.83 9.85Zm5.4-7.38c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.94 1.17-.17.2-.35.23-.65.08-.3-.15-1.27-.47-2.42-1.49-.9-.8-1.5-1.78-1.68-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.68-1.64-.93-2.25-.24-.59-.49-.51-.68-.52h-.58c-.2 0-.53.08-.8.38-.28.3-1.06 1.03-1.06 2.52s1.08 2.92 1.23 3.12c.15.2 2.13 3.25 5.16 4.56.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z"/>
+  </svg>
+</a>
+
+<style>
+.floating-whatsapp {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 58px;
+  height: 58px;
+  background: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,.35);
+  z-index: 9999;
+  transition: transform .25s ease;
+}
+
+.floating-whatsapp:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+  .floating-whatsapp {
+    width: 54px;
+    height: 54px;
+    bottom: 18px;
+    right: 18px;
+  }
+}
+</style>
+</body>
+</html>
