@@ -107,6 +107,50 @@ button,input,textarea,select{font:inherit}
 .service-bottom p{max-width:700px;color:var(--muted);font-size:13px;line-height:1.9}
 @media(max-width:900px){.services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.service-feature-copy{padding:27px}}
 @media(max-width:650px){.service-feature{grid-template-columns:1fr}.service-feature-image,.service-feature-image img{height:220px;min-height:220px}.service-feature-copy{padding:24px}.services-grid{grid-template-columns:1fr}.service-card{min-height:0}.service-card p{min-height:0}.service-bottom-inner{align-items:flex-start;flex-direction:column}}
+
+/* Footer aligned with the Home page */
+.site-footer {
+  direction: ltr;
+  width: 100%;
+  background: linear-gradient(180deg, #171717 0%, #0B0D12 100%);
+  color: #D1D5DB;
+  padding: 55px 25px 20px;
+  border-top: 2px solid #1769AA;
+  font-family: inherit;
+}
+.footer-container { width: 100%; max-width: 1200px; margin: 0 auto; }
+.footer-heading { text-align: center; margin-bottom: 45px; }
+.footer-heading h2 { color: #FFFFFF; font-size: 27px; font-weight: 700; margin: 0 0 12px; letter-spacing: .5px; }
+.footer-heading > p { color: #C9A227; font-size: 16px; margin: 0; letter-spacing: 1px; }
+.footer-heading-line { width: 90px; height: 3px; margin: 20px auto 0; background: linear-gradient(90deg, #D71920, #1769AA); border-radius: 5px; }
+.footer-columns { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 45px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.12); }
+.footer-column { display: flex; flex-direction: column; align-items: flex-start; gap: 15px; }
+.footer-column h3 { color: #FFFFFF; font-size: 18px; font-weight: 700; margin: 0 0 10px; padding-bottom: 12px; position: relative; }
+.footer-column h3::after { content: ""; position: absolute; bottom: 0; left: 0; width: 42px; height: 2px; background: #D71920; border-radius: 5px; }
+.footer-column > a { display: inline-flex; align-items: center; gap: 11px; color: #BFC5CE; text-decoration: none; font-size: 14px; transition: color .25s ease, transform .25s ease; }
+.footer-column > a:hover { color: #FFFFFF; transform: translateX(5px); }
+.social-icon { width: 27px; height: 27px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; border-radius: 7px; color: #FFFFFF; font-size: 16px; font-weight: 700; }
+.footer-brand { text-align: center; padding: 35px 0 25px; }
+.footer-brand-name { color: #FFFFFF; font-size: 18px; font-weight: 700; margin: 12px 0 5px; }
+.footer-tagline { color: #C9A227; font-size: 14px; margin: 0; }
+.footer-logo-link { display: inline-block; max-width: 190px; }
+.footer-logo-link img { display: block; width: 100%; max-height: 85px; object-fit: contain; }
+.footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,.12); padding-top: 18px; }
+.footer-bottom p { color: #9299A5; font-size: 13px; margin: 0; }
+.footer-bottom strong { color: #FFFFFF; }
+@media (max-width: 900px) {
+  .site-footer { padding: 42px 20px 18px; }
+  .footer-heading h2 { font-size: 22px; }
+  .footer-columns { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 35px 25px; }
+  .footer-column:first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) {
+  .footer-columns { grid-template-columns: 1fr; gap: 30px; }
+  .footer-column:first-child { grid-column: auto; }
+  .footer-heading h2 { font-size: 19px; }
+  .footer-brand { padding-top: 30px; }
+}
+
 </style>
 </head>
 <body>
@@ -167,17 +211,27 @@ button,input,textarea,select{font:inherit}
 </section></main>
 
 <footer class="site-footer" id="site-footer">
+
   <div class="footer-container">
+
     <div class="footer-heading">
       <h2>Professional Computer &amp; Automation</h2>
       <p>Your Technology .. Our Mission</p>
       <div class="footer-heading-line"></div>
     </div>
+
     <div class="footer-columns">
+
       <div class="footer-column footer-social">
         <h3>Social Media</h3>
-        <a href="https://www.facebook.com/3ApqrenoTechnology" target="_blank" rel="noopener noreferrer"><span class="social-icon">f</span>Facebook</a>
+        <a href="https://www.facebook.com/3ApqrenoTechnology" target="_blank" rel="noopener noreferrer"><span class="social-icon facebook">f</span> Facebook</a>
+        <a href="https://www.instagram.com/mohamed_3apqreno" target="_blank" rel="noopener noreferrer"><span class="social-icon instagram">◎</span> Instagram</a>
+        <a href="https://www.tiktok.com/@3apqreno" target="_blank" rel="noopener noreferrer"><span class="social-icon tiktok">♪</span> TikTok</a>
+        <a href="https://www.youtube.com/@mohamed3apqreno" target="_blank" rel="noopener noreferrer"><span class="social-icon youtube">▶</span> YouTube</a>
+        <a href="https://x.com/mohamed3apqreno" target="_blank" rel="noopener noreferrer"><span class="social-icon x-social">𝕏</span> X</a>
+        <a href="https://www.linkedin.com/in/m%C3%B3h%C3%A4m%C3%A9d-h%C3%B9ss%C3%AA%C3%ACn-b9383b159" target="_blank" rel="noopener noreferrer"><span class="social-icon linkedin">in</span> LinkedIn</a>
       </div>
+
       <div class="footer-column">
         <h3>Policies &amp; Support</h3>
         <a href="privacy-policy.html">Privacy Policy</a>
@@ -185,6 +239,7 @@ button,input,textarea,select{font:inherit}
         <a href="privacy-settings.html">Privacy Settings</a>
         <a href="contact.html">Contact Us</a>
       </div>
+
       <div class="footer-column">
         <h3>About the Company</h3>
         <a href="about.html">About Us</a>
@@ -192,13 +247,21 @@ button,input,textarea,select{font:inherit}
         <a href="news.html">News &amp; Activities</a>
         <a href="careers.html">Careers &amp; Opportunities</a>
       </div>
+
     </div>
+
     <div class="footer-brand">
-      <a href="index.html" class="footer-logo-link"><img src="assets/images/3Apqreno-Technology-logo-from-reference.png" alt="3Apqreno Technology Logo"></a>
+      <a href="index.html" class="footer-logo-link">
+        <img src="assets/images/3Apqreno-Technology-logo-from-reference.png" alt="3Apqreno Technology Logo">
+      </a>
       <p class="footer-brand-name">3Apqreno Technology</p>
       <p class="footer-tagline">Your Technology .. Our Mission</p>
     </div>
-    <div class="footer-bottom"><p>Created by <strong>Mohamed Hussein</strong> © 2026</p></div>
+
+    <div class="footer-bottom">
+      <p>Created by <strong>Mohamed Hussein</strong> © 2026</p>
+    </div>
+
   </div>
 </footer>
 <a class="floating-whatsapp" href="https://wa.me/201030117098" target="_blank" rel="noopener noreferrer" aria-label="Chat with 3Apqreno Technology on WhatsApp">
