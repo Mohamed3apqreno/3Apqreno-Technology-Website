@@ -238,18 +238,28 @@ button,input,textarea,select{font:inherit}
 @media(max-width:680px){.community-compose{padding:17px;gap:12px}.compose-avatar{width:40px;height:40px;flex-basis:40px}.community-toolbar{align-items:flex-start;flex-direction:column}.community-sort{padding-left:2px}.compose-actions{align-items:flex-start;flex-direction:column;gap:9px}}
 /* ===== END COMMUNITY BLOG FEED ===== */
 
+
+/* Community composer interface — awaiting Firebase database/storage setup */
+.community-dialog{width:min(720px,calc(100% - 28px));max-height:88vh;overflow:auto;margin:auto;padding:36px;border:1px solid rgba(201,162,39,.38);border-radius:18px;background:#111720;color:#fff;box-shadow:0 25px 80px rgba(0,0,0,.75)}
+.community-dialog::backdrop{background:rgba(0,0,0,.84);backdrop-filter:blur(5px)}
+.community-dialog h2{font-size:27px;margin:8px 0}.composer-description,.file-guidance{color:#AEB7C5;font-size:12px;line-height:1.8;margin-bottom:18px}
+.community-dialog form{display:grid;gap:9px}.community-dialog label{font-size:12px;font-weight:600;color:#E7EAF0;margin-top:8px}
+.community-dialog input,.community-dialog select,.community-dialog textarea{width:100%;padding:12px 14px;border:1px solid #394252;border-radius:9px;background:#0B0D12;color:#fff;outline:none}
+.community-dialog input:focus,.community-dialog select:focus,.community-dialog textarea:focus{border-color:#1769AA;box-shadow:0 0 0 3px rgba(23,105,170,.14)}
+.community-dialog input[type=file]{font-size:12px}.community-dialog textarea{resize:vertical;min-height:145px}
+.file-guidance{margin:0}.composer-actions{display:flex;align-items:center;gap:12px;margin-top:12px}.composer-cancel{border:1px solid rgba(255,255,255,.2);border-radius:9px;padding:10px 17px;background:transparent;color:#fff;cursor:pointer}.composer-status{font-size:12px;color:#C9A227;line-height:1.7;min-height:18px}
+.community-feed .community-empty{border-color:rgba(201,162,39,.25)}
+@media(max-width:600px){.community-dialog{padding:29px 20px}.composer-actions{align-items:stretch;flex-direction:column}.composer-actions button{width:100%}}
+
 </style>
 </head>
 <body>
 
 <header class="site-header">
   <div class="header-container">
-
     <a href="index.html" class="brand">
-      <img src="assets/images/3Apqreno-Technology-logo-from-reference.png"
-           alt="3Apqreno Technology Logo">
+      <img src="assets/images/3Apqreno-Technology-logo-from-reference.png" alt="3Apqreno Technology Logo">
     </a>
-
     <nav class="main-nav">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
@@ -260,26 +270,13 @@ button,input,textarea,select{font:inherit}
       <a href="contact.html">Contact</a>
     </nav>
     <div class="header-actions">
-      <a class="header-signin" href="login.html">
-         Sign In
-      </a>
-
-      <!-- Search Icon -->
+      <button type="button" class="header-signin" id="openLogin">Sign In</button>
       <button class="header-icon" id="focusSearch" type="button" aria-label="Search">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="10.8" cy="10.8" r="6.8"></circle>
-          <path d="M16 16L21 21"></path>
-        </svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="M16 16L21 21"></path></svg>
       </button>
-
-      <!-- Toolbox Icon -->
       <a href="tools.html" class="header-icon" aria-label="Tools">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="3" y="7" width="18" height="14" rx="2"></rect>
-          <path d="M8 7V4h8v3M3 12h18M10 12v2h4v-2"></path>
-        </svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="14" rx="2"></rect><path d="M8 7V4h8v3M3 12h18M10 12v2h4v-2"></path></svg>
       </a>
-
     </div>
   </div>
 </header>
@@ -316,39 +313,71 @@ button,input,textarea,select{font:inherit}
         <h2 id="communityTitle">Your Tech Community</h2>
         <p>Ask questions, share repair experiences, publish useful tips, and learn from other technology enthusiasts.</p>
       </div>
+
       <div class="community-compose">
         <div class="compose-avatar" aria-hidden="true">3A</div>
         <div class="compose-content">
           <strong>Have something useful to share?</strong>
-          <p>Members can submit a post for review. It will only appear publicly after the 3Apqreno administrator approves it.</p>
+          <p>Start a discussion, share a repair story, or upload supporting photos and files. Every new post stays private until Mohamed approves it.</p>
           <div class="compose-actions">
-            <a class="community-primary" href="login.html">Sign in to create a post</a>
-            <span class="compose-note"><span aria-hidden="true">＋</span> Photo &amp; file attachments for signed-in members</span>
+            <button class="community-primary" type="button" id="startCommunityPost">＋ Create a post</button>
+            <span class="compose-note">Sign-in required • Posts are reviewed before publication</span>
           </div>
         </div>
       </div>
+
       <div class="community-toolbar">
         <div class="community-categories" role="group" aria-label="Community post categories">
           <button class="community-filter active" type="button" data-community-filter="all">All topics</button>
-          <button class="community-filter" type="button" data-community-filter="performance">Performance</button>
-          <button class="community-filter" type="button" data-community-filter="windows">Windows</button>
+          <button class="community-filter" type="button" data-community-filter="performance">Performance &amp; Optimization</button>
+          <button class="community-filter" type="button" data-community-filter="windows">Windows Support</button>
           <button class="community-filter" type="button" data-community-filter="software">Software &amp; Utilities</button>
           <button class="community-filter" type="button" data-community-filter="drivers">Drivers &amp; Firmware</button>
-          <button class="community-filter" type="button" data-community-filter="macos">macOS</button>
-          <button class="community-filter" type="button" data-community-filter="linux">Linux</button>
+          <button class="community-filter" type="button" data-community-filter="macos">macOS Support</button>
+          <button class="community-filter" type="button" data-community-filter="linux">Linux Support</button>
         </div>
-        <span class="community-sort">Community posts</span>
+        <span class="community-sort">Community discussions</span>
       </div>
+
       <div class="community-feed" id="communityFeed" aria-live="polite">
-        <div class="community-empty">
+        <div class="community-empty" id="communityEmpty">
           <span class="community-empty-icon" aria-hidden="true">✦</span>
           <h3>The conversation starts here</h3>
-          <p>Approved member posts will appear here. Every submission is reviewed before publication.</p>
+          <p>Approved member posts will appear here. Submitted posts remain private until administrator approval.</p>
         </div>
       </div>
-      <p class="community-policy"><span aria-hidden="true">✓</span> Posts are published only after administrator approval.</p>
+      <p class="community-policy"><span aria-hidden="true">✓</span> Only administrator-approved posts can appear publicly.</p>
     </section>
 
+    <dialog class="community-dialog" id="communityComposer" aria-labelledby="composerTitle">
+      <button class="dialog-close" id="closeComposer" type="button" aria-label="Close">×</button>
+      <span class="post-label">COMMUNITY CONTRIBUTION</span>
+      <h2 id="composerTitle">Create a post</h2>
+      <p class="composer-description">Share something useful with the 3Apqreno community. Your submission will remain private until it is reviewed and approved.</p>
+      <form id="communityPostForm">
+        <label for="communityPostTitle">Post title</label>
+        <input id="communityPostTitle" name="title" maxlength="120" required placeholder="Give your post a clear title">
+        <label for="communityPostCategory">Topic</label>
+        <select id="communityPostCategory" name="category" required>
+          <option value="performance">Performance &amp; Optimization</option>
+          <option value="windows">Windows Support</option>
+          <option value="software">Software &amp; Utilities</option>
+          <option value="drivers">Drivers &amp; Firmware</option>
+          <option value="macos">macOS Support</option>
+          <option value="linux">Linux Support</option>
+        </select>
+        <label for="communityPostBody">Your post</label>
+        <textarea id="communityPostBody" name="body" rows="7" maxlength="8000" required placeholder="Describe the issue, solution, question, or experience..."></textarea>
+        <label for="communityPostFiles">Photos or supporting files (optional)</label>
+        <input id="communityPostFiles" name="attachments" type="file" accept="image/*,.pdf,.txt,.log,.zip" multiple>
+        <p class="file-guidance">File uploads will be enabled after Firebase Storage is configured. This page currently provides the interface only.</p>
+        <div class="composer-actions">
+          <button class="community-primary" type="submit">Preview submission</button>
+          <button class="composer-cancel" id="cancelComposer" type="button">Cancel</button>
+        </div>
+        <p class="composer-status" id="composerStatus" role="status" aria-live="polite"></p>
+      </form>
+    </dialog>
     <div class="section-heading editorial-heading">
       <span class="eyebrow">FROM THE 3APQRENO TECH DESK</span>
       <h2>Guides &amp; <span>Technical Articles</span></h2>
@@ -477,37 +506,62 @@ document.getElementById('focusSearch')?.addEventListener('click',()=>{
 
 const articles={
 diagnosis:{title:"Start With a Diagnosis, Not a Guess",body:[["p","A computer problem can have several causes. A slow system, unexpected shutdown, display issue, or boot failure should be approached as a symptom to investigate—not as proof that one particular part has failed."],["h","A practical first pass"],["ul",["Write down the exact symptom and when it happens.","Check power, cables, display connections, and recent changes.","Look for useful evidence in system logs and built-in diagnostics.","Check temperatures, storage health, memory, and device status where relevant.","Change one thing at a time and record the result."]],["p","If the device contains important data, protect the data before attempting repairs that could make the situation worse. A measured diagnosis is usually faster and safer than replacing parts at random."]]},
-"slow-pc":{title:"How to Investigate a Slow Computer",body:[["p","Start by identifying when the slowdown occurs: during startup, while opening one application, during browsing, or all the time. The pattern helps narrow the cause."],["h","Checks worth making"],["ul",["Review startup apps and close programs that do not need to launch automatically.","Check free disk space and whether the system drive is reporting errors.","Use Task Manager to identify sustained CPU, memory, or disk usage.","Check for overheating, blocked vents, or unusually loud cooling fans.","Install operating-system and driver updates from trusted sources."]],["p","Avoid installing several 'PC optimizer' utilities at once. Make one controlled change, restart if needed, and compare the result."]]},
-reinstall:{title:"Before You Reinstall Windows",body:[["p","A clean installation can solve persistent software problems, but preparation is essential. The installation process can erase files and change the boot configuration."],["h","Pre-install checklist"],["ul",["Back up documents, photos, browser data, and any application-specific files.","Confirm the exact PC model and identify its network, storage, chipset, and graphics drivers.","Create installation media from Microsoft's official source.","Check whether the device is configured for UEFI and whether the disk uses GPT.","Make sure you have the required account access and software licence information.","Disconnect external drives that are not needed during setup."]],["p","Do not change firmware storage settings casually. RAID, AHCI, and other controller modes can affect whether an existing Windows installation boots."]]},
-bios:{title:"BIOS and UEFI: What Is the Difference?",body:[["p","BIOS and UEFI are firmware interfaces that initialize hardware and hand control to the operating system. UEFI is the modern successor to legacy BIOS and supports features such as Secure Boot and modern GPT-based boot configurations."],["h","Why the setting matters"],["ul",["UEFI systems commonly boot from GPT-partitioned drives.","Legacy/CSM modes are intended for older operating-system and hardware combinations.","Changing boot mode after installing an operating system can make it temporarily unbootable.","Firmware options and names differ between manufacturers and models."]],["p","Before changing firmware settings, record the current configuration and confirm the operating system's installation mode."]]},
-drivers:{title:"Why the Correct Driver Matters",body:[["p","A driver connects the operating system to a specific hardware device. A driver that is close—but not correct—for a device can leave features unavailable or cause instability."],["h","Choose drivers carefully"],["ul",["Identify the full computer model or motherboard model.","Check the hardware revision and operating-system version.","Prefer the PC manufacturer's support page for branded systems.","Use the component manufacturer's source when appropriate.","Avoid third-party driver bundles that do not identify the publisher clearly."]],["p","Create a restore point or other recovery option before making major driver changes, especially on a working computer."]]},
-mac:{title:"Windows on a Mac: Start With Compatibility",body:[["p","Boot Camp support depends on the Mac model and its hardware generation. Before preparing Windows, confirm that the exact model supports the intended version and that the required Boot Camp support software is available."],["h","Before you begin"],["ul",["Identify the exact Mac model and year.","Check Apple's Boot Camp compatibility guidance for that model.","Back up macOS data before repartitioning or installing another operating system.","Confirm available storage and prepare the correct support drivers.","Keep the macOS recovery options available."]],["p","Do not assume that every Intel Mac supports every Windows release, and note that Apple silicon Macs use a different Windows-on-Mac approach from Intel models."]]},
-downloads:{title:"Build a Safer Software Download Habit",body:[["p","Software downloads are safest when the publisher and source are clear. Search results and download mirrors can contain misleading buttons, repackaged installers, or unwanted extras."],["h","A safer routine"],["ul",["Download from the software publisher or an official app store whenever possible.","Check the publisher name and digital signature when available.","Read installer screens instead of accepting every optional offer.","Keep installers only when you know where they came from and why you need them.","Scan unexpected files and keep security protection enabled."]],["p","If a download page is full of deceptive buttons or unrelated offers, leave it and find the publisher's official page."]]}
+"slow-pc":{title:"How to Investigate a Slow Computer",body:[["p","Start by identifying when the slowdown occurs: during startup, while opening one application, during browsing, or all the time. The pattern helps narrow the cause."],["h","Checks worth making"],["ul",["Review startup apps and close programs that do not need to launch automatically.","Check free disk space and whether the system drive is reporting errors.","Use Task Manager to identify sustained CPU, memory, or disk usage.","Check for overheating, blocked vents, or unusually loud cooling fans.","Install operating-system and driver updates from trusted sources."]],["p","Avoid installing several PC optimizer utilities at once. Make one controlled change, restart if needed, and compare the result."]]},
+reinstall:{title:"Before You Reinstall Windows",body:[["p","A clean installation can solve persistent software problems, but preparation is essential. The installation process can erase files and change the boot configuration."],["h","Pre-install checklist"],["ul",["Back up documents, photos, browser data, and application-specific files.","Confirm the exact PC model and identify its drivers.","Create installation media from Microsoft's official source.","Check whether the device is configured for UEFI and whether the disk uses GPT.","Make sure you have required account access and licence information.","Disconnect external drives that are not needed during setup."]],["p","Do not change firmware storage settings casually. RAID and AHCI modes can affect whether an existing Windows installation boots."]]},
+bios:{title:"BIOS and UEFI: What Is the Difference?",body:[["p","BIOS and UEFI are firmware interfaces that initialize hardware and hand control to the operating system. UEFI is the modern successor to legacy BIOS and supports features such as Secure Boot and GPT boot configurations."],["h","Why the setting matters"],["ul",["UEFI systems commonly boot from GPT-partitioned drives.","Legacy/CSM modes are intended for older combinations.","Changing boot mode after installation can make an OS temporarily unbootable.","Firmware options differ between manufacturers and models."]],["p","Before changing firmware settings, record the current configuration and confirm the operating system's installation mode."]]},
+drivers:{title:"Why the Correct Driver Matters",body:[["p","A driver connects the operating system to a specific hardware device. A driver that is close—but not correct—for a device can leave features unavailable or cause instability."],["h","Choose drivers carefully"],["ul",["Identify the full computer or motherboard model.","Check the hardware revision and operating-system version.","Prefer the PC manufacturer's support page for branded systems.","Use the component manufacturer's source when appropriate.","Avoid third-party driver bundles with unclear publishers."]],["p","Create a recovery option before making major driver changes."]]},
+mac:{title:"Windows on a Mac: Start With Compatibility",body:[["p","Boot Camp support depends on the Mac model and its hardware generation. Confirm the exact model and required support software before preparing Windows."],["h","Before you begin"],["ul",["Identify the exact Mac model and year.","Check Apple's Boot Camp compatibility guidance.","Back up macOS data before repartitioning.","Confirm available storage and prepare the correct support drivers.","Keep macOS recovery options available."]],["p","Intel Macs and Apple silicon Macs use different approaches to Windows compatibility."]]},
+downloads:{title:"Build a Safer Software Download Habit",body:[["p","Software downloads are safest when the publisher and source are clear. Search results and download mirrors can contain misleading buttons or repackaged installers."],["h","A safer routine"],["ul",["Download from the publisher or an official app store.","Check the publisher name and digital signature when available.","Read installer screens instead of accepting every optional offer.","Keep track of where installers came from.","Scan unexpected files and keep security protection enabled."]],["p","If a download page is full of deceptive buttons, leave it and find the publisher's official page."]]}
 };
 const grid=document.getElementById("postsGrid"), search=document.getElementById("pageSearch"), chips=[...document.querySelectorAll(".filter-chip")], empty=document.getElementById("emptyState");
 let active="all";
-function applyFilters(){const q=(search.value||"").trim().toLowerCase();let visible=0;grid.querySelectorAll(".post-card").forEach(card=>{const okCat=active==="all"||card.dataset.category===active;const okText=!q||(card.innerText+" "+card.dataset.search).toLowerCase().includes(q);card.hidden=!(okCat&&okText);if(!card.hidden)visible++;});empty.hidden=visible!==0;}
+function applyFilters(){const q=(search?.value||"").trim().toLowerCase();let visible=0;grid?.querySelectorAll(".post-card").forEach(card=>{const okCat=active==="all"||card.dataset.category===active;const okText=!q||(card.innerText+" "+card.dataset.search).toLowerCase().includes(q);card.hidden=!(okCat&&okText);if(!card.hidden)visible++;});if(empty)empty.hidden=visible!==0;}
 chips.forEach(chip=>chip.addEventListener("click",()=>{active=chip.dataset.filter;chips.forEach(x=>x.classList.toggle("active",x===chip));applyFilters();}));
-search.addEventListener("input",applyFilters);
+search?.addEventListener("input",applyFilters);
 const dialog=document.getElementById("articleDialog"),dialogTitle=document.getElementById("dialogTitle"),dialogBody=document.getElementById("dialogBody");
 function openArticle(id){const item=articles[id];if(!item)return;dialogTitle.textContent=item.title;dialogBody.replaceChildren();item.body.forEach(([type,value])=>{const el=document.createElement(type==="h"?"h3":type==="ul"?"ul":"p");if(type==="ul")value.forEach(line=>{const li=document.createElement("li");li.textContent=line;el.append(li);});else el.textContent=value;dialogBody.append(el);});dialog.showModal();}
 document.querySelectorAll("[data-article]").forEach(btn=>btn.addEventListener("click",()=>openArticle(btn.dataset.article)));
-document.getElementById("closeArticle").addEventListener("click",()=>dialog.close());
+document.getElementById("closeArticle")?.addEventListener("click",()=>dialog.close());
+dialog?.addEventListener("click",e=>{if(e.target===dialog)dialog.close();});
 
 const communityFilters=[...document.querySelectorAll(".community-filter")];
-const communityEmptyTitle=document.querySelector(".community-empty h3");
-const communityEmptyText=document.querySelector(".community-empty p");
+const composer=document.getElementById("communityComposer");
+const postForm=document.getElementById("communityPostForm");
+const status=document.getElementById("composerStatus");
+function closeComposer(){if(composer?.open)composer.close();postForm?.reset();if(status)status.textContent="";}
+function openComposer(){
+  if(document.documentElement.dataset.authenticated!=="true"){
+    document.getElementById("openLogin")?.click();
+    return;
+  }
+  composer?.showModal();
+}
+document.getElementById("startCommunityPost")?.addEventListener("click",openComposer);
+document.getElementById("closeComposer")?.addEventListener("click",closeComposer);
+document.getElementById("cancelComposer")?.addEventListener("click",closeComposer);
+composer?.addEventListener("click",e=>{if(e.target===composer)closeComposer();});
+postForm?.addEventListener("submit",e=>{
+  e.preventDefault();
+  if(document.documentElement.dataset.authenticated!=="true"){
+    if(status)status.textContent="Please sign in again to continue.";
+    document.getElementById("openLogin")?.click();
+    return;
+  }
+  const title=document.getElementById("communityPostTitle").value.trim();
+  const body=document.getElementById("communityPostBody").value.trim();
+  const files=document.getElementById("communityPostFiles").files;
+  if(!title||!body)return;
+  if(status)status.textContent="Your draft is valid. It has NOT been uploaded or saved yet: Firestore and Firebase Storage still need to be enabled. Once connected, this submission will be sent privately for Mohamed's approval.";
+  console.info("3Apqreno community draft preview", {title,category:document.getElementById("communityPostCategory").value,body,selectedFiles:[...files].map(file=>({name:file.name,size:file.size,type:file.type}))});
+});
 communityFilters.forEach(filter=>filter.addEventListener("click",()=>{
   communityFilters.forEach(item=>item.classList.toggle("active",item===filter));
   const topic=filter.dataset.communityFilter;
-  communityEmptyTitle.textContent=topic==="all"?"The conversation starts here":"No approved posts in this topic yet";
-  communityEmptyText.textContent=topic==="all"
-    ?"Approved member posts will appear here. Every submission is reviewed before publication."
-    :"Approved "+filter.textContent.trim()+" posts will appear here after members submit them and the administrator approves them.";
+  const heading=document.querySelector("#communityEmpty h3");
+  const message=document.querySelector("#communityEmpty p");
+  if(heading)heading.textContent=topic==="all"?"The conversation starts here":"No approved posts in this topic yet";
+  if(message)message.textContent=topic==="all"?"Approved member posts will appear here. Submitted posts remain private until administrator approval.":"Approved "+filter.textContent.trim()+" posts will appear here after review.";
 }));
-
-dialog.addEventListener("click",e=>{if(e.target===dialog)dialog.close();});
-
 </script>
 </body>
 </html>
