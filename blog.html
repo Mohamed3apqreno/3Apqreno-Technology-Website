@@ -574,6 +574,30 @@ button,input,textarea,select{font:inherit}
 @media(max-width:560px){.blog-masthead{padding-left:6%;padding-right:6%}.blog-script-title{font-size:65px}.blog-lead{font-size:13px}.blog-search-wrap{height:50px}.blog-search-wrap>span{display:none}.page-wrap.blog-feature-section,.page-wrap.blog-community-section{padding-left:6%;padding-right:6%}.blog-feature-section{padding-top:38px;padding-bottom:38px}.blog-featured-copy{padding:25px 21px}.story-footer{align-items:flex-start;flex-direction:column}.community-join-card{padding:18px;grid-template-columns:36px minmax(0,1fr)}.join-card-symbol{width:35px;height:35px}.community-toolbar{gap:14px}.community-categories{gap:6px}.community-filter{font-size:9px;padding:7px 9px}.blog-discover-column{grid-template-columns:1fr}.community-empty{padding:28px 21px}.community-heading-copy h2{font-size:39px}}
 /* ===== END BLOG JOURNAL REDESIGN ===== */
 
+
+/* ===== VISIBLE INLINE COMMUNITY POST COMPOSER ===== */
+.community-inline-composer{margin:0 0 20px;padding:25px;border:1px solid rgba(23,105,170,.34);border-top:2px solid #1769AA;background:linear-gradient(125deg,rgba(23,105,170,.10),rgba(215,25,32,.045)),#11151D;box-shadow:0 14px 35px rgba(0,0,0,.18)}
+.inline-composer-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;margin-bottom:20px}
+.inline-composer-heading h3{margin:8px 0 5px;color:#F5F5F5;font-size:22px;font-weight:600}
+.inline-composer-heading p{margin:0;color:#9FA9B7;font-size:11px;line-height:1.7}
+.inline-compose-mark{width:39px;height:39px;display:grid;place-items:center;border:1px solid rgba(201,162,39,.35);color:#C9A227;font-size:20px;flex:none}
+.community-inline-composer form{display:grid;gap:9px}
+.community-inline-composer label{color:#C6CED8;font-size:10px;font-weight:600;letter-spacing:.4px;margin-top:4px}
+.community-inline-composer input,.community-inline-composer select,.community-inline-composer textarea{width:100%;min-width:0;padding:12px 13px;border:1px solid rgba(255,255,255,.13);border-radius:3px;background:#090D14;color:#F5F5F5;font:inherit;font-size:12px;outline:none}
+.community-inline-composer input:focus,.community-inline-composer select:focus,.community-inline-composer textarea:focus{border-color:#1769AA;box-shadow:0 0 0 2px rgba(23,105,170,.12)}
+.community-inline-composer input::placeholder,.community-inline-composer textarea::placeholder{color:#788493}
+.community-inline-composer textarea{resize:vertical;line-height:1.75}
+.community-inline-composer input[type=file]{font-size:10px;color:#9FA9B7}
+.community-inline-composer input[type=file]::file-selector-button{margin-right:10px;padding:7px 10px;border:1px solid rgba(201,162,39,.35);background:#171B24;color:#E4D4A0;border-radius:3px;font-size:10px;cursor:pointer}
+.inline-form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.inline-form-row>div{display:grid;gap:9px;min-width:0}
+.inline-composer-footer{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:8px}
+.inline-composer-footer small{max-width:60%;color:#8793A2;font-size:8px;letter-spacing:1px;line-height:1.6}
+.community-inline-composer .file-guidance{margin:0;color:#788493;font-size:9px;line-height:1.6}
+.community-inline-composer .composer-status{margin:0;color:#C9A227;font-size:10px;line-height:1.7}
+@media(max-width:560px){.community-inline-composer{padding:18px}.inline-form-row{grid-template-columns:1fr}.inline-composer-footer{align-items:flex-start;flex-direction:column}.inline-composer-footer small{max-width:100%}.inline-composer-heading h3{font-size:19px}}
+/* ===== END VISIBLE INLINE COMMUNITY POST COMPOSER ===== */
+
 </style>
 </head>
 <body>
@@ -670,6 +694,19 @@ button,input,textarea,select{font:inherit}
     </div>
     <div class="community-layout">
       <div class="community-main-column">
+        <section class="community-inline-composer" id="communityComposer" aria-labelledby="composerTitle">
+          <div class="inline-composer-heading"><div><span class="story-category">YOUR COMMUNITY SPACE</span><h3 id="composerTitle">What would you like to share?</h3><p>Ask a question, share a solution, or start a technical discussion.</p></div><span class="inline-compose-mark">✳</span></div>
+          <form id="communityPostForm">
+            <label for="communityPostTitle">Post title</label>
+            <input id="communityPostTitle" name="title" maxlength="120" required placeholder="Give your post a clear title">
+            <div class="inline-form-row"><div><label for="communityPostCategory">Topic</label><select id="communityPostCategory" name="category" required><option value="performance">Performance &amp; Optimization</option><option value="windows">Windows Support</option><option value="software">Software &amp; Utilities</option><option value="drivers">Drivers &amp; Firmware</option><option value="macos">macOS Support</option><option value="linux">Linux Support</option></select></div><div><label for="communityPostFiles">Attach images or files</label><input id="communityPostFiles" name="attachments" type="file" accept="image/*,.pdf,.txt,.log,.zip" multiple></div></div>
+            <label for="communityPostBody">Your post</label>
+            <textarea id="communityPostBody" name="body" rows="5" maxlength="8000" required placeholder="Write your question, experience, or technical tip here..."></textarea>
+            <div class="inline-composer-footer"><small>MEMBERS ONLY · POSTS STAY PRIVATE UNTIL MOHAMED APPROVES THEM</small><button class="community-primary" type="submit">Submit for review ↗</button></div>
+            <p class="file-guidance">Saving posts and uploading files will activate after Firestore and Firebase Storage are configured. This is currently a page preview.</p>
+            <p class="composer-status" id="composerStatus" role="status" aria-live="polite"></p>
+          </form>
+        </section>
         <div class="community-feed" id="communityFeed" aria-live="polite">
           <div class="community-empty" id="communityEmpty">
             <span class="community-empty-icon" aria-hidden="true">✳</span>
@@ -708,27 +745,6 @@ button,input,textarea,select{font:inherit}
     </div>
   </section>
 
-  <dialog class="community-dialog" id="communityComposer" aria-labelledby="composerTitle">
-    <button class="dialog-close" id="closeComposer" type="button" aria-label="Close">×</button>
-    <span class="post-label">COMMUNITY CONTRIBUTION</span>
-    <h2 id="composerTitle">Create a post</h2>
-    <p class="composer-description">Share something useful with the 3Apqreno community. Your submission will remain private until it is reviewed and approved.</p>
-    <form id="communityPostForm">
-      <label for="communityPostTitle">Post title</label>
-      <input id="communityPostTitle" name="title" maxlength="120" required placeholder="Give your post a clear title">
-      <label for="communityPostCategory">Topic</label>
-      <select id="communityPostCategory" name="category" required>
-        <option value="performance">Performance &amp; Optimization</option><option value="windows">Windows Support</option><option value="software">Software &amp; Utilities</option><option value="drivers">Drivers &amp; Firmware</option><option value="macos">macOS Support</option><option value="linux">Linux Support</option>
-      </select>
-      <label for="communityPostBody">Your post</label>
-      <textarea id="communityPostBody" name="body" rows="7" maxlength="8000" required placeholder="Describe the issue, solution, question, or experience..."></textarea>
-      <label for="communityPostFiles">Photos or supporting files (optional)</label>
-      <input id="communityPostFiles" name="attachments" type="file" accept="image/*,.pdf,.txt,.log,.zip" multiple>
-      <p class="file-guidance">Posting and file uploads will become active after the database and storage services are configured. This is currently a page preview.</p>
-      <div class="composer-actions"><button class="community-primary" type="submit">Preview submission</button><button class="composer-cancel" id="cancelComposer" type="button">Cancel</button></div>
-      <p class="composer-status" id="composerStatus" role="status" aria-live="polite"></p>
-    </form>
-  </dialog>
   <dialog class="article-dialog" id="articleDialog" aria-labelledby="dialogTitle">
     <button class="dialog-close" id="closeArticle" aria-label="Close article">×</button>
     <span class="post-label">3APQRENO TECHNICAL NOTES</span><h2 id="dialogTitle"></h2><div id="dialogBody" class="dialog-body"></div>
@@ -922,19 +938,20 @@ const communityFilters=[...document.querySelectorAll(".community-filter")];
 const composer=document.getElementById("communityComposer");
 const postForm=document.getElementById("communityPostForm");
 const status=document.getElementById("composerStatus");
-function closeComposer(){if(composer?.open)composer.close();postForm?.reset();if(status)status.textContent="";}
+function closeComposer(){postForm?.reset();if(status)status.textContent="";}
 function openComposer(){
   if(document.documentElement.dataset.authenticated!=="true"){
     document.getElementById("openLogin")?.click();
     return;
   }
-  composer?.showModal();
+  composer?.scrollIntoView({behavior:"smooth",block:"center"});
+  document.getElementById("communityPostTitle")?.focus({preventScroll:true});
 }
 document.getElementById("startCommunityPost")?.addEventListener("click",openComposer);
 document.getElementById("emptyCreatePost")?.addEventListener("click",openComposer);
-document.getElementById("closeComposer")?.addEventListener("click",closeComposer);
-document.getElementById("cancelComposer")?.addEventListener("click",closeComposer);
-composer?.addEventListener("click",e=>{if(e.target===composer)closeComposer();});
+
+
+
 postForm?.addEventListener("submit",e=>{
   e.preventDefault();
   if(document.documentElement.dataset.authenticated!=="true"){
